@@ -40,8 +40,8 @@ function applyPpeRequired(ctx: TemplateApplyContext) {
   // Signal word: MANDATORY
   const signalWord = new fabric.IText('MANDATORY', {
     left: width / 2,
-    top: headerTop + headerH * 0.15,
-    fontSize: height * 0.032,
+    top: headerTop + headerH * 0.08,
+    fontSize: height * 0.048,
     fontFamily: 'Inter, Arial, sans-serif',
     fontWeight: 'bold',
     fill: primary,
@@ -53,8 +53,8 @@ function applyPpeRequired(ctx: TemplateApplyContext) {
   // Title
   const titleText = new fabric.IText('PERSONAL PROTECTIVE\nEQUIPMENT', {
     left: width / 2,
-    top: headerTop + headerH * 0.42,
-    fontSize: height * 0.048,
+    top: headerTop + headerH * 0.45,
+    fontSize: height * 0.055,
     fontFamily: 'Inter, Arial, sans-serif',
     fontWeight: 'bold',
     fill: textDark,

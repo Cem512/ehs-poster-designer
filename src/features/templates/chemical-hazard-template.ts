@@ -55,8 +55,8 @@ function applyChemicalHazard(ctx: TemplateApplyContext) {
 
   const warningText = new fabric.IText('WARNING', {
     left: width / 2,
-    top: headerTop + headerH * 0.15,
-    fontSize: height * 0.04,
+    top: headerTop + headerH * 0.1,
+    fontSize: height * 0.065,
     fontFamily: 'Inter, Arial, sans-serif',
     fontWeight: 'bold',
     fill: textDark,
@@ -67,8 +67,8 @@ function applyChemicalHazard(ctx: TemplateApplyContext) {
 
   const chemTitle = new fabric.IText('CHEMICAL HAZARD AREA', {
     left: width / 2,
-    top: headerTop + headerH * 0.55,
-    fontSize: height * 0.05,
+    top: headerTop + headerH * 0.58,
+    fontSize: height * 0.055,
     fontFamily: 'Inter, Arial, sans-serif',
     fontWeight: 'bold',
     fill: textDark,

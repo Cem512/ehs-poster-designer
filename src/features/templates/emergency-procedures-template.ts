@@ -52,8 +52,8 @@ function applyEmergencyProcedures(ctx: TemplateApplyContext) {
 
   const titleText = new fabric.IText('EMERGENCY\nPROCEDURES', {
     left: width / 2,
-    top: headerH * 0.2,
-    fontSize: height * 0.05,
+    top: headerH * 0.12,
+    fontSize: height * 0.065,
     fontFamily: 'Inter, Arial, sans-serif',
     fontWeight: 'bold',
     fill: white,

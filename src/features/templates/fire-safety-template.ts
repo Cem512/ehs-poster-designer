@@ -55,8 +55,8 @@ function applyFireSafety(ctx: TemplateApplyContext) {
 
   const titleText = new fabric.IText('FIRE SAFETY', {
     left: width / 2,
-    top: headerH * 0.3,
-    fontSize: height * 0.065,
+    top: headerH * 0.2,
+    fontSize: height * 0.085,
     fontFamily: 'Inter, Arial, sans-serif',
     fontWeight: 'bold',
     fill: white,
