@@ -108,7 +108,7 @@ export default function PictogramPanel() {
               }}
             >
               <img
-                src={p.svgPath}
+                src={`${import.meta.env.BASE_URL}${p.svgPath.replace(/^\//, '')}`}
                 alt={p.label}
                 className="w-12 h-12 mb-1"
                 draggable={false}

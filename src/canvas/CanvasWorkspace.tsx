@@ -137,7 +137,7 @@ export default function CanvasWorkspace() {
       const size = mmToPx(50); // ISO minimum 50mm for pictograms
 
       // Fetch SVG text and parse it as Fabric vector objects
-      fetch(picto.svgPath)
+      fetch(`${import.meta.env.BASE_URL}${picto.svgPath.replace(/^\//, '')}`)
         .then((res) => res.text())
         .then((svgText) => {
           fabric.loadSVGFromString(svgText).then((result) => {
