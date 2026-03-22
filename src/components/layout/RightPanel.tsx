@@ -17,7 +17,7 @@ export default function RightPanel() {
 
   return (
     <div
-      className="w-72 flex flex-col border-l overflow-y-auto shrink-0"
+      className="w-72 lg:w-80 xl:w-[22rem] flex flex-col border-l overflow-y-auto shrink-0"
       style={{ backgroundColor: 'var(--color-surface)', borderColor: 'var(--color-border)' }}
     >
       <div className="px-3 py-2 border-b flex items-center justify-between" style={{ borderColor: 'var(--color-border)' }}>

@@ -47,7 +47,7 @@ export default function StatusBar() {
 
   return (
     <div
-      className="h-7 flex items-center px-3 text-xs border-t shrink-0"
+      className="h-7 lg:h-8 flex items-center px-3 lg:px-4 text-xs lg:text-sm border-t shrink-0"
       style={{
         backgroundColor: 'var(--color-surface)',
         borderColor: 'var(--color-border)',

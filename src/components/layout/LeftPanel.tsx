@@ -27,7 +27,7 @@ export default function LeftPanel() {
     >
       {/* Tab icons with labels */}
       <div
-        className="w-14 flex flex-col items-center py-2 gap-0.5 border-r shrink-0"
+        className="w-14 lg:w-16 flex flex-col items-center py-2 gap-0.5 border-r shrink-0"
         style={{ backgroundColor: 'var(--color-surface)', borderColor: 'var(--color-border)' }}
       >
         {tabs.map(({ id, icon: Icon, label, tabLabel }) => (
@@ -41,15 +41,15 @@ export default function LeftPanel() {
               color: leftPanelTab === id ? 'var(--color-text)' : 'var(--color-text-muted)',
             }}
           >
-            <Icon size={16} />
-            <span className="text-[9px] leading-tight font-medium">{tabLabel}</span>
+            <Icon size={16} className="lg:!w-[18px] lg:!h-[18px]" />
+            <span className="text-[9px] lg:text-[10px] leading-tight font-medium">{tabLabel}</span>
           </button>
         ))}
       </div>
 
       {/* Panel content */}
       <div
-        className="w-64 flex flex-col overflow-hidden"
+        className="w-64 lg:w-72 xl:w-80 flex flex-col overflow-hidden"
         style={{ backgroundColor: 'var(--color-surface)' }}
       >
         <div className="px-3 py-2 border-b flex items-center justify-between" style={{ borderColor: 'var(--color-border)' }}>

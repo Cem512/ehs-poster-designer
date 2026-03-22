@@ -158,7 +158,7 @@ export default function Toolbar() {
 
   return (
     <div
-      className="h-12 flex items-center gap-1 px-2 md:px-3 border-b shrink-0"
+      className="h-12 lg:h-14 flex items-center gap-1 lg:gap-1.5 px-2 md:px-3 lg:px-4 border-b shrink-0"
       style={{ backgroundColor: 'var(--color-surface)', borderColor: 'var(--color-border)' }}
     >
       {/* Left panel toggle */}

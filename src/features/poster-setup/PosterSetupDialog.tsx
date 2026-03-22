@@ -160,7 +160,7 @@ function PurposePosterPreview({ purpose, theme, signalWord }: { purpose: PosterP
     <div
       className="w-full rounded-sm overflow-hidden relative"
       style={{
-        aspectRatio: '7/10',
+        aspectRatio: '3/4',
         backgroundColor: theme.background,
         border: `2px solid ${theme.primary}`,
       }}
@@ -190,7 +190,7 @@ function PurposePosterPreview({ purpose, theme, signalWord }: { purpose: PosterP
         }}
       >
         <span
-          className="text-[10px] sm:text-[13px] font-black tracking-wider"
+          className="text-[10px] sm:text-[13px] lg:text-[16px] font-black tracking-wider"
           style={{ color: headerTextColor }}
         >
           {signalWord}
@@ -384,23 +384,23 @@ export default function PosterSetupDialog() {
   const purposeLabel = PURPOSES.find(p => p.id === purpose)?.label ?? purpose;
 
   return (
-    <div className="h-full flex items-center justify-center p-4 overflow-y-auto" style={{ background: 'var(--color-bg)' }}>
+    <div className="h-full flex items-center justify-center p-4 lg:p-8 overflow-y-auto" style={{ background: 'var(--color-bg)' }}>
       <div
-        className="w-full max-w-3xl rounded-xl shadow-2xl overflow-hidden"
+        className="w-full max-w-3xl lg:max-w-5xl xl:max-w-[85vw] 2xl:max-w-[1600px] max-h-[calc(100vh-2rem)] lg:max-h-[calc(100vh-4rem)] rounded-xl shadow-2xl overflow-hidden flex flex-col"
         style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}
       >
         {/* Header */}
-        <div className="px-4 sm:px-8 pt-6 sm:pt-8 pb-3">
-          <h1 className="text-2xl sm:text-3xl font-bold mb-1">EHS Poster Designer</h1>
-          <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-muted)' }}>
+        <div className="px-4 sm:px-8 lg:px-12 pt-6 sm:pt-8 lg:pt-10 pb-3 lg:pb-4 shrink-0">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-1 lg:mb-2">EHS Poster Designer</h1>
+          <p className="text-sm sm:text-base lg:text-lg" style={{ color: 'var(--color-text-muted)' }}>
             Design print-ready safety posters with internationally recognized pictograms
           </p>
 
           {/* Feature highlights */}
-          <div className="flex flex-wrap gap-x-4 gap-y-1 mt-3">
+          <div className="flex flex-wrap gap-x-4 lg:gap-x-6 gap-y-1 mt-3 lg:mt-4">
             {FEATURES.map((feat) => (
-              <span key={feat} className="flex items-center gap-1.5 text-xs sm:text-sm" style={{ color: 'var(--color-text-muted)' }}>
-                <CheckCircle2 size={14} style={{ color: '#007A33' }} />
+              <span key={feat} className="flex items-center gap-1.5 text-xs sm:text-sm lg:text-base" style={{ color: 'var(--color-text-muted)' }}>
+                <CheckCircle2 size={14} className="lg:!w-[18px] lg:!h-[18px]" style={{ color: '#007A33' }} />
                 {feat}
               </span>
             ))}
@@ -408,11 +408,11 @@ export default function PosterSetupDialog() {
         </div>
 
         {/* Step indicator */}
-        <div className="px-4 sm:px-8 flex gap-2 mb-2 sm:mb-3 overflow-x-auto">
+        <div className="px-4 sm:px-8 lg:px-12 flex gap-2 lg:gap-3 mb-2 sm:mb-3 lg:mb-4 overflow-x-auto shrink-0">
           {steps.map((s, i) => (
-            <div key={s} className="flex items-center gap-2">
+            <div key={s} className="flex items-center gap-2 lg:gap-3">
               <div
-                className="w-7 h-7 rounded-full flex items-center justify-center text-sm font-semibold shrink-0"
+                className="w-7 h-7 lg:w-9 lg:h-9 rounded-full flex items-center justify-center text-sm lg:text-base font-semibold shrink-0"
                 style={{
                   backgroundColor: i <= step ? 'var(--color-mandatory, #003DA5)' : 'var(--color-border)',
                   color: i <= step ? '#fff' : 'var(--color-text-muted)',
@@ -420,45 +420,45 @@ export default function PosterSetupDialog() {
               >
                 {i + 1}
               </div>
-              <span className="text-sm whitespace-nowrap font-medium" style={{ color: i === step ? 'var(--color-text)' : 'var(--color-text-muted)' }}>
+              <span className="text-sm lg:text-base whitespace-nowrap font-medium" style={{ color: i === step ? 'var(--color-text)' : 'var(--color-text-muted)' }}>
                 {s}
               </span>
               {i < steps.length - 1 && (
-                <div className="w-8 h-px shrink-0" style={{ backgroundColor: 'var(--color-border)' }} />
+                <div className="w-8 lg:w-12 h-px shrink-0" style={{ backgroundColor: 'var(--color-border)' }} />
               )}
             </div>
           ))}
         </div>
 
         {/* Step hint */}
-        <div className="px-4 sm:px-8 mb-3">
-          <p className="text-xs sm:text-sm leading-relaxed" style={{ color: 'var(--color-text-muted)' }}>
+        <div className="px-4 sm:px-8 lg:px-12 mb-3 lg:mb-4 shrink-0">
+          <p className="text-xs sm:text-sm lg:text-base leading-relaxed" style={{ color: 'var(--color-text-muted)' }}>
             {STEP_HINTS[step]}
           </p>
         </div>
 
         {/* Step content */}
-        <div className="px-4 sm:px-8 pb-4 min-h-[200px] sm:min-h-[280px]">
+        <div className="px-4 sm:px-8 lg:px-12 pb-4 lg:pb-6 min-h-[200px] sm:min-h-[280px] overflow-y-auto flex-1">
           {step === 0 && (
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-2 sm:gap-3 lg:gap-4">
               {PURPOSES.map(({ id, label, desc, signalWord: sw }) => {
                 const t = getDefaultThemeForPurpose(id);
                 return (
                   <button
                     key={id}
                     onClick={() => handlePurposeSelect(id)}
-                    className="p-2 sm:p-3 rounded-lg text-left transition-all flex flex-col"
+                    className="p-2 sm:p-3 lg:p-4 rounded-lg text-left transition-all flex flex-col"
                     style={{
                       backgroundColor: purpose === id ? 'var(--color-surface-hover)' : 'transparent',
                       border: `2px solid ${purpose === id ? t.primary : 'var(--color-border)'}`,
                     }}
                   >
                     {/* Purpose-specific poster preview */}
-                    <div className="w-full mb-2 px-[10%]">
+                    <div className="w-full mb-2 px-[10%] lg:px-[15%]">
                       <PurposePosterPreview purpose={id} theme={t} signalWord={sw} />
                     </div>
-                    <div className="text-sm sm:text-base font-semibold">{label}</div>
-                    <div className="text-xs sm:text-sm mt-0.5" style={{ color: 'var(--color-text-muted)' }}>{desc}</div>
+                    <div className="text-sm sm:text-base lg:text-lg font-semibold">{label}</div>
+                    <div className="text-xs sm:text-sm lg:text-base mt-0.5" style={{ color: 'var(--color-text-muted)' }}>{desc}</div>
                   </button>
                 );
               })}
@@ -467,28 +467,28 @@ export default function PosterSetupDialog() {
 
           {step === 1 && (
             <div className="space-y-4">
-              <div className="flex gap-4 sm:gap-6">
+              <div className="flex gap-4 sm:gap-6 lg:gap-8">
                 {/* Left: size buttons + orientation */}
-                <div className="flex-1 space-y-4">
+                <div className="flex-1 space-y-4 lg:space-y-5">
                   {/* Paper size */}
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Paper Size</label>
-                    <div className="space-y-1.5">
+                    <label className="text-sm lg:text-base font-medium mb-2 lg:mb-3 block">Paper Size</label>
+                    <div className="space-y-1.5 lg:space-y-2">
                       {(Object.keys(PAPER_SIZES) as Array<keyof typeof PAPER_SIZES>).map((key) => (
                         <button
                           key={key}
                           onClick={() => setSizeKey(key)}
-                          className="w-full py-2 px-3 rounded-lg text-left transition-all flex items-center gap-3"
+                          className="w-full py-2 lg:py-3 px-3 lg:px-4 rounded-lg text-left transition-all flex items-center gap-3"
                           style={{
                             backgroundColor: sizeKey === key ? 'var(--color-surface-hover)' : 'transparent',
                             border: `2px solid ${sizeKey === key ? 'var(--color-mandatory, #003DA5)' : 'var(--color-border)'}`,
                           }}
                         >
-                          <span className="text-sm font-bold w-7">{key}</span>
-                          <span className="text-[10px]" style={{ color: 'var(--color-text-muted)' }}>
+                          <span className="text-sm lg:text-base font-bold w-7 lg:w-8">{key}</span>
+                          <span className="text-[10px] lg:text-sm" style={{ color: 'var(--color-text-muted)' }}>
                             {PAPER_SIZES[key].width}×{PAPER_SIZES[key].height} mm
                           </span>
-                          <span className="ml-auto text-[10px] italic" style={{ color: 'var(--color-text-muted)' }}>
+                          <span className="ml-auto text-[10px] lg:text-sm italic" style={{ color: 'var(--color-text-muted)' }}>
                             {SIZE_REFERENCES[key]}
                           </span>
                         </button>
@@ -498,29 +498,29 @@ export default function PosterSetupDialog() {
 
                   {/* Orientation */}
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Orientation</label>
-                    <div className="flex gap-2">
+                    <label className="text-sm lg:text-base font-medium mb-2 lg:mb-3 block">Orientation</label>
+                    <div className="flex gap-2 lg:gap-3">
                       <button
                         onClick={() => setOrientation('portrait')}
-                        className="flex items-center gap-2 py-2 px-3 rounded-lg flex-1 transition-all"
+                        className="flex items-center gap-2 py-2 lg:py-3 px-3 lg:px-4 rounded-lg flex-1 transition-all"
                         style={{
                           backgroundColor: orientation === 'portrait' ? 'var(--color-surface-hover)' : 'transparent',
                           border: `2px solid ${orientation === 'portrait' ? 'var(--color-mandatory, #003DA5)' : 'var(--color-border)'}`,
                         }}
                       >
                         <div className="w-4 h-6 rounded-sm" style={{ border: '2px solid var(--color-text-muted)' }} />
-                        <span className="text-xs">Portrait</span>
+                        <span className="text-xs lg:text-sm">Portrait</span>
                       </button>
                       <button
                         onClick={() => setOrientation('landscape')}
-                        className="flex items-center gap-2 py-2 px-3 rounded-lg flex-1 transition-all"
+                        className="flex items-center gap-2 py-2 lg:py-3 px-3 lg:px-4 rounded-lg flex-1 transition-all"
                         style={{
                           backgroundColor: orientation === 'landscape' ? 'var(--color-surface-hover)' : 'transparent',
                           border: `2px solid ${orientation === 'landscape' ? 'var(--color-mandatory, #003DA5)' : 'var(--color-border)'}`,
                         }}
                       >
                         <div className="w-6 h-4 rounded-sm" style={{ border: '2px solid var(--color-text-muted)' }} />
-                        <span className="text-xs">Landscape</span>
+                        <span className="text-xs lg:text-sm">Landscape</span>
                       </button>
                     </div>
                   </div>
@@ -528,9 +528,9 @@ export default function PosterSetupDialog() {
 
                 {/* Right: visual scale comparison with human silhouette */}
                 <div
-                  className="hidden sm:flex flex-col items-center justify-end rounded-lg px-3 pt-2 pb-3"
+                  className="hidden sm:flex flex-col items-center justify-end rounded-lg px-3 lg:px-4 pt-2 pb-3"
                   style={{
-                    width: 160,
+                    width: 180,
                     backgroundColor: 'var(--color-bg)',
                     border: '1px solid var(--color-border)',
                   }}
@@ -550,26 +550,26 @@ export default function PosterSetupDialog() {
 
           {step === 2 && (
             <div>
-              <label className="text-sm font-medium mb-3 block">Color Theme</label>
-              <div className="space-y-2">
+              <label className="text-sm lg:text-base font-medium mb-3 block">Color Theme</label>
+              <div className="space-y-2 lg:space-y-3">
                 {SAFETY_THEMES.map((t) => (
                   <button
                     key={t.id}
                     onClick={() => setTheme(t)}
-                    className="w-full flex items-center gap-3 py-3 px-4 rounded-lg transition-all"
+                    className="w-full flex items-center gap-3 lg:gap-4 py-3 lg:py-4 px-4 lg:px-5 rounded-lg transition-all"
                     style={{
                       backgroundColor: theme.id === t.id ? 'var(--color-surface-hover)' : 'transparent',
                       border: `2px solid ${theme.id === t.id ? t.primary : 'var(--color-border)'}`,
                     }}
                   >
-                    <div className="flex gap-1">
-                      <div className="w-6 h-6 rounded" style={{ backgroundColor: t.primary }} />
-                      <div className="w-6 h-6 rounded" style={{ backgroundColor: t.secondary }} />
-                      <div className="w-6 h-6 rounded border" style={{ backgroundColor: t.background, borderColor: 'var(--color-border)' }} />
+                    <div className="flex gap-1 lg:gap-1.5">
+                      <div className="w-6 h-6 lg:w-8 lg:h-8 rounded" style={{ backgroundColor: t.primary }} />
+                      <div className="w-6 h-6 lg:w-8 lg:h-8 rounded" style={{ backgroundColor: t.secondary }} />
+                      <div className="w-6 h-6 lg:w-8 lg:h-8 rounded border" style={{ backgroundColor: t.background, borderColor: 'var(--color-border)' }} />
                     </div>
                     <div className="text-left">
-                      <div className="text-sm font-medium">{t.label}</div>
-                      <div className="text-xs" style={{ color: 'var(--color-text-muted)' }}>
+                      <div className="text-sm lg:text-base font-medium">{t.label}</div>
+                      <div className="text-xs lg:text-sm" style={{ color: 'var(--color-text-muted)' }}>
                         Signal word: {t.signalWord}
                       </div>
                     </div>
@@ -582,7 +582,7 @@ export default function PosterSetupDialog() {
           {step === 3 && (
             <div className="space-y-4">
               <div>
-                <label className="text-sm font-medium mb-2 block">
+                <label className="text-sm lg:text-base font-medium mb-2 lg:mb-3 block">
                   Intended Viewing Distance: <strong>{viewingDistance}m</strong>
                 </label>
                 <input
@@ -594,7 +594,7 @@ export default function PosterSetupDialog() {
                   onChange={(e) => setViewingDistance(Number(e.target.value))}
                   className="w-full accent-[#003DA5]"
                 />
-                <div className="flex justify-between text-xs mt-1" style={{ color: 'var(--color-text-muted)' }}>
+                <div className="flex justify-between text-xs lg:text-sm mt-1" style={{ color: 'var(--color-text-muted)' }}>
                   <span>1m</span>
                   <span>5m</span>
                   <span>10m</span>
@@ -604,12 +604,12 @@ export default function PosterSetupDialog() {
               </div>
 
               {/* Quick presets */}
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-3 gap-2 lg:gap-3">
                 {COMMON_DISTANCES.slice(0, 6).map(({ label, value }) => (
                   <button
                     key={value}
                     onClick={() => setViewingDistance(value)}
-                    className="py-2 px-3 rounded text-xs transition-all"
+                    className="py-2 lg:py-3 px-3 lg:px-4 rounded lg:rounded-lg text-xs lg:text-sm transition-all"
                     style={{
                       backgroundColor: viewingDistance === value ? 'var(--color-surface-hover)' : 'transparent',
                       border: `1px solid ${viewingDistance === value ? 'var(--color-mandatory, #003DA5)' : 'var(--color-border)'}`,
@@ -625,8 +625,8 @@ export default function PosterSetupDialog() {
                 className="p-4 rounded-lg mt-4"
                 style={{ backgroundColor: 'var(--color-surface-hover)', border: '1px solid var(--color-border)' }}
               >
-                <h4 className="text-sm font-medium mb-2">Poster Summary</h4>
-                <div className="grid grid-cols-2 gap-y-1 text-xs">
+                <h4 className="text-sm lg:text-base font-medium mb-2">Poster Summary</h4>
+                <div className="grid grid-cols-2 gap-y-1 lg:gap-y-2 text-xs lg:text-sm">
                   <span style={{ color: 'var(--color-text-muted)' }}>Purpose</span>
                   <span>{purposeLabel}</span>
                   <span style={{ color: 'var(--color-text-muted)' }}>Size</span>
@@ -642,11 +642,11 @@ export default function PosterSetupDialog() {
         </div>
 
         {/* Navigation buttons */}
-        <div className="px-4 sm:px-8 py-4 flex justify-between border-t" style={{ borderColor: 'var(--color-border)' }}>
+        <div className="px-4 sm:px-8 lg:px-12 py-4 lg:py-5 flex justify-between border-t shrink-0" style={{ borderColor: 'var(--color-border)' }}>
           <button
             onClick={() => setStep(Math.max(0, step - 1))}
             disabled={step === 0}
-            className="px-4 py-2 rounded text-sm transition-colors"
+            className="px-4 lg:px-6 py-2 lg:py-2.5 rounded lg:rounded-lg text-sm lg:text-base transition-colors"
             style={{
               backgroundColor: 'transparent',
               color: step === 0 ? 'var(--color-border)' : 'var(--color-text-muted)',
@@ -659,7 +659,7 @@ export default function PosterSetupDialog() {
           {step < steps.length - 1 ? (
             <button
               onClick={() => setStep(step + 1)}
-              className="px-6 py-2 rounded text-sm font-medium transition-colors"
+              className="px-6 lg:px-8 py-2 lg:py-2.5 rounded lg:rounded-lg text-sm lg:text-base font-medium transition-colors"
               style={{ backgroundColor: 'var(--color-mandatory, #003DA5)', color: '#fff' }}
             >
               Next
@@ -667,7 +667,7 @@ export default function PosterSetupDialog() {
           ) : (
             <button
               onClick={handleComplete}
-              className="px-6 py-2 rounded text-sm font-medium transition-colors"
+              className="px-6 lg:px-8 py-2 lg:py-2.5 rounded lg:rounded-lg text-sm lg:text-base font-medium transition-colors"
               style={{ backgroundColor: '#007A33', color: '#fff' }}
             >
               Create Poster
