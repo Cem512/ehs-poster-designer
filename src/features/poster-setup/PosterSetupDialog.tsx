@@ -190,7 +190,7 @@ function PurposePosterPreview({ purpose, theme, signalWord }: { purpose: PosterP
         }}
       >
         <span
-          className="text-[6px] sm:text-[7px] font-black tracking-wider"
+          className="text-[10px] sm:text-[13px] font-black tracking-wider"
           style={{ color: headerTextColor }}
         >
           {signalWord}
@@ -386,21 +386,21 @@ export default function PosterSetupDialog() {
   return (
     <div className="h-full flex items-center justify-center p-4 overflow-y-auto" style={{ background: 'var(--color-bg)' }}>
       <div
-        className="w-full max-w-2xl rounded-xl shadow-2xl overflow-hidden"
+        className="w-full max-w-3xl rounded-xl shadow-2xl overflow-hidden"
         style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}
       >
         {/* Header */}
         <div className="px-4 sm:px-8 pt-6 sm:pt-8 pb-3">
-          <h1 className="text-xl sm:text-2xl font-bold mb-1">EHS Poster Designer</h1>
-          <p className="text-xs sm:text-sm" style={{ color: 'var(--color-text-muted)' }}>
+          <h1 className="text-2xl sm:text-3xl font-bold mb-1">EHS Poster Designer</h1>
+          <p className="text-sm sm:text-base" style={{ color: 'var(--color-text-muted)' }}>
             Design print-ready safety posters with internationally recognized pictograms
           </p>
 
           {/* Feature highlights */}
           <div className="flex flex-wrap gap-x-4 gap-y-1 mt-3">
             {FEATURES.map((feat) => (
-              <span key={feat} className="flex items-center gap-1 text-[10px] sm:text-xs" style={{ color: 'var(--color-text-muted)' }}>
-                <CheckCircle2 size={12} style={{ color: '#007A33' }} />
+              <span key={feat} className="flex items-center gap-1.5 text-xs sm:text-sm" style={{ color: 'var(--color-text-muted)' }}>
+                <CheckCircle2 size={14} style={{ color: '#007A33' }} />
                 {feat}
               </span>
             ))}
@@ -412,7 +412,7 @@ export default function PosterSetupDialog() {
           {steps.map((s, i) => (
             <div key={s} className="flex items-center gap-2">
               <div
-                className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium shrink-0"
+                className="w-7 h-7 rounded-full flex items-center justify-center text-sm font-semibold shrink-0"
                 style={{
                   backgroundColor: i <= step ? 'var(--color-mandatory, #003DA5)' : 'var(--color-border)',
                   color: i <= step ? '#fff' : 'var(--color-text-muted)',
@@ -420,7 +420,7 @@ export default function PosterSetupDialog() {
               >
                 {i + 1}
               </div>
-              <span className="text-xs whitespace-nowrap" style={{ color: i === step ? 'var(--color-text)' : 'var(--color-text-muted)' }}>
+              <span className="text-sm whitespace-nowrap font-medium" style={{ color: i === step ? 'var(--color-text)' : 'var(--color-text-muted)' }}>
                 {s}
               </span>
               {i < steps.length - 1 && (
@@ -432,7 +432,7 @@ export default function PosterSetupDialog() {
 
         {/* Step hint */}
         <div className="px-4 sm:px-8 mb-3">
-          <p className="text-[11px] sm:text-xs leading-relaxed" style={{ color: 'var(--color-text-muted)' }}>
+          <p className="text-xs sm:text-sm leading-relaxed" style={{ color: 'var(--color-text-muted)' }}>
             {STEP_HINTS[step]}
           </p>
         </div>
@@ -457,8 +457,8 @@ export default function PosterSetupDialog() {
                     <div className="w-full mb-2 px-[10%]">
                       <PurposePosterPreview purpose={id} theme={t} signalWord={sw} />
                     </div>
-                    <div className="text-xs sm:text-sm font-medium">{label}</div>
-                    <div className="text-[10px] sm:text-xs mt-0.5" style={{ color: 'var(--color-text-muted)' }}>{desc}</div>
+                    <div className="text-sm sm:text-base font-semibold">{label}</div>
+                    <div className="text-xs sm:text-sm mt-0.5" style={{ color: 'var(--color-text-muted)' }}>{desc}</div>
                   </button>
                 );
               })}
