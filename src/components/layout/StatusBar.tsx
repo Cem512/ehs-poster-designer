@@ -1,21 +1,23 @@
 import { useState, useEffect, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useCanvasStore } from '../../store/canvas-store';
 import { usePosterStore } from '../../store/poster-store';
 import { useUIStore } from '../../store/ui-store';
 import { getFabricCanvas } from '../../canvas/FabricCanvas';
 import { getPosterDimensionsPx } from '../../constants/paper-sizes';
 
-/** Format a relative time like "just now", "30s ago", "2m ago" */
-function formatTimeAgo(date: Date): string {
+/** Format a relative time using i18n translation keys */
+function formatTimeAgo(date: Date, t: (key: string, opts?: Record<string, unknown>) => string): string {
   const seconds = Math.round((Date.now() - date.getTime()) / 1000);
-  if (seconds < 10) return 'just now';
-  if (seconds < 60) return `${seconds}s ago`;
+  if (seconds < 10) return t('status.justNow');
+  if (seconds < 60) return t('status.secondsAgo', { seconds });
   const minutes = Math.floor(seconds / 60);
-  if (minutes < 60) return `${minutes}m ago`;
-  return `${Math.floor(minutes / 60)}h ago`;
+  if (minutes < 60) return t('status.minutesAgo', { minutes });
+  return t('status.hoursAgo', { hours: Math.floor(minutes / 60) });
 }
 
 export default function StatusBar() {
+  const { t } = useTranslation();
   const { zoom, gridVisible, snapEnabled, toggleGrid, toggleSnap, setZoom } = useCanvasStore();
   const { document: posterDoc } = usePosterStore();
   const { isMobile, hasUnsavedChanges, lastSavedAt } = useUIStore();
@@ -57,17 +59,17 @@ export default function StatusBar() {
       <button
         onClick={handleZoomFit}
         className="hover:underline cursor-pointer"
-        title="Click to zoom-to-fit"
+        title={t('status.clickZoomFit')}
       >{Math.round(zoom * 100)}%</button>
       <StatusDivider />
       <span>{posterDoc.sizeKey} ({posterDoc.size.width} x {posterDoc.size.height} mm)</span>
       <StatusDivider />
-      <span className="capitalize">{posterDoc.orientation}</span>
+      <span>{t(`status.${posterDoc.orientation}`)}</span>
 
       {!isMobile && (
         <>
           <StatusDivider />
-          <span>Viewing: {posterDoc.viewingDistance}m</span>
+          <span>{t('status.viewing')}: {posterDoc.viewingDistance}m</span>
         </>
       )}
 
@@ -76,7 +78,7 @@ export default function StatusBar() {
       {/* Save status indicator */}
       <span
         className="flex items-center gap-1"
-        title={lastSavedAt ? `Last auto-saved at ${lastSavedAt.toLocaleTimeString()}` : 'Not yet saved'}
+        title={lastSavedAt ? t('status.lastAutoSaved', { time: lastSavedAt.toLocaleTimeString() }) : t('status.notYetSaved')}
       >
         <span
           className="w-1.5 h-1.5 rounded-full"
@@ -85,21 +87,21 @@ export default function StatusBar() {
           }}
         />
         {hasUnsavedChanges
-          ? 'Unsaved changes'
+          ? t('status.unsavedChanges')
           : lastSavedAt
-            ? `Saved ${formatTimeAgo(lastSavedAt)}`
-            : 'Not saved'}
+            ? t('status.saved', { time: formatTimeAgo(lastSavedAt, t) })
+            : t('status.notSaved')}
       </span>
       <StatusDivider />
 
       {!isMobile && (
         <>
-          <button onClick={toggleGrid} className="hover:underline cursor-pointer" title="Toggle grid (G)">
-            {gridVisible ? 'Grid ON' : 'Grid OFF'}
+          <button onClick={toggleGrid} className="hover:underline cursor-pointer" title={t('status.toggleGrid')}>
+            {gridVisible ? t('status.gridOn') : t('status.gridOff')}
           </button>
           <StatusDivider />
-          <button onClick={toggleSnap} className="hover:underline cursor-pointer" title="Toggle snap-to-grid">
-            {snapEnabled ? 'Snap ON' : 'Snap OFF'}
+          <button onClick={toggleSnap} className="hover:underline cursor-pointer" title={t('status.toggleSnap')}>
+            {snapEnabled ? t('status.snapOn') : t('status.snapOff')}
           </button>
           <StatusDivider />
         </>

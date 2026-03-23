@@ -1,4 +1,5 @@
 import { Settings, Type, Move, Eye, Palette, Contrast, Wand2, Paintbrush, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { usePosterStore } from '../../store/poster-store';
 import { useCanvasStore } from '../../store/canvas-store';
 import { useUIStore } from '../../store/ui-store';
@@ -11,6 +12,7 @@ import AutoLayoutPanel from '../../features/auto-layout/AutoLayoutPanel';
 import ColorEditor from '../../features/colors/ColorEditor';
 
 export default function RightPanel() {
+  const { t } = useTranslation();
   const { document: posterDoc } = usePosterStore();
   const { selectedObjectIds } = useCanvasStore();
   const { setRightPanelOpen } = useUIStore();
@@ -21,12 +23,12 @@ export default function RightPanel() {
       style={{ backgroundColor: 'var(--color-surface)', borderColor: 'var(--color-border)' }}
     >
       <div className="px-3 py-2 border-b flex items-center justify-between" style={{ borderColor: 'var(--color-border)' }}>
-        <h3 className="text-sm font-medium">Properties</h3>
+        <h3 className="text-sm font-medium">{t('panels.properties')}</h3>
         <button
           onClick={() => setRightPanelOpen(false)}
           className="w-6 h-6 flex items-center justify-center rounded transition-colors opacity-60 hover:opacity-100"
           style={{ color: 'var(--color-text-muted)' }}
-          title="Close panel"
+          title={t('rightPanel.closePanel')}
         >
           <X size={16} />
         </button>
@@ -34,23 +36,23 @@ export default function RightPanel() {
 
       <div className="p-3 space-y-4">
         {/* Text properties (shown when text selected) */}
-        <Section title="Text" icon={Type}>
+        <Section title={t('toolbar.text')} icon={Type}>
           <TextToolbar />
         </Section>
 
         {/* Poster info */}
-        <Section title="Poster" icon={Settings}>
-          <InfoRow label="Size" value={`${posterDoc.size.width} × ${posterDoc.size.height} mm`} />
-          <InfoRow label="Orientation" value={posterDoc.orientation.charAt(0).toUpperCase() + posterDoc.orientation.slice(1)} />
-          <InfoRow label="Theme" value={posterDoc.theme.label} />
-          <InfoRow label="Border" value={posterDoc.border.type.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')} />
+        <Section title={t('rightPanel.poster')} icon={Settings}>
+          <InfoRow label={t('rightPanel.size')} value={`${posterDoc.size.width} × ${posterDoc.size.height} mm`} />
+          <InfoRow label={t('rightPanel.orientation')} value={t(`status.${posterDoc.orientation}`)} />
+          <InfoRow label={t('rightPanel.theme')} value={t(`wizard.theme.themes.${posterDoc.theme.id}`)} />
+          <InfoRow label={t('rightPanel.border')} value={posterDoc.border.type.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')} />
         </Section>
 
         {/* Readability info */}
-        <Section title="Readability" icon={Eye}>
-          <InfoRow label="Viewing distance" value={`${posterDoc.viewingDistance}m`} />
+        <Section title={t('rightPanel.readability')} icon={Eye}>
+          <InfoRow label={t('rightPanel.viewingDistance')} value={`${posterDoc.viewingDistance}m`} />
           <InfoRow
-            label="Min font size"
+            label={t('rightPanel.minFontSize')}
             value={`${getMinFontSizePt(posterDoc.viewingDistance).toFixed(0)} pt`}
           />
           <div className="mt-2">
@@ -59,38 +61,38 @@ export default function RightPanel() {
         </Section>
 
         {/* Contrast checker */}
-        <Section title="Contrast" icon={Contrast}>
+        <Section title={t('rightPanel.contrast')} icon={Contrast}>
           <ContrastChecker />
         </Section>
 
         {/* Selection info */}
         {selectedObjectIds.length > 0 && (
-          <Section title="Selection" icon={Move}>
+          <Section title={t('rightPanel.selection')} icon={Move}>
             <p className="text-xs" style={{ color: 'var(--color-text-muted)' }}>
-              {selectedObjectIds.length} object(s) selected
+              {t('rightPanel.objectsSelected', { count: selectedObjectIds.length })}
             </p>
           </Section>
         )}
 
         {/* Color editor for selected objects */}
         {selectedObjectIds.length > 0 && (
-          <Section title="Element Colors" icon={Paintbrush}>
+          <Section title={t('rightPanel.elementColors')} icon={Paintbrush}>
             <ColorEditor />
           </Section>
         )}
 
         {/* Auto-layout */}
-        <Section title="Auto Layout" icon={Wand2}>
+        <Section title={t('rightPanel.autoLayout')} icon={Wand2}>
           <AutoLayoutPanel />
         </Section>
 
         {/* Theme colors */}
-        <Section title="Theme Colors" icon={Palette}>
+        <Section title={t('rightPanel.themeColors')} icon={Palette}>
           <div className="grid grid-cols-4 gap-2">
-            <ColorSwatch color={posterDoc.theme.primary} label="Primary" />
-            <ColorSwatch color={posterDoc.theme.secondary} label="Secondary" />
-            <ColorSwatch color={posterDoc.theme.accent} label="Accent" />
-            <ColorSwatch color={posterDoc.theme.background} label="Background" />
+            <ColorSwatch color={posterDoc.theme.primary} label={t('rightPanel.primary')} />
+            <ColorSwatch color={posterDoc.theme.secondary} label={t('rightPanel.secondary')} />
+            <ColorSwatch color={posterDoc.theme.accent} label={t('rightPanel.accent')} />
+            <ColorSwatch color={posterDoc.theme.background} label={t('rightPanel.background')} />
           </div>
         </Section>
       </div>
@@ -122,6 +124,8 @@ function InfoRow({ label, value }: { label: string; value: string }) {
 }
 
 function ColorSwatch({ color, label }: { color: string; label: string }) {
+  const { t } = useTranslation();
+
   const handleClick = () => {
     const canvas = getFabricCanvas();
     if (!canvas) return;
@@ -129,11 +133,11 @@ function ColorSwatch({ color, label }: { color: string; label: string }) {
     if (active && 'set' in active) {
       active.set('fill', color);
       canvas.requestRenderAll();
-      showToast(`${label} color applied`, 'success');
+      showToast(t('rightPanel.colorApplied', { label }), 'success');
     } else {
       // No selection — copy hex to clipboard
       navigator.clipboard?.writeText(color).then(() => {
-        showToast(`Copied ${color}`, 'info');
+        showToast(t('rightPanel.copied', { color }), 'info');
       });
     }
   };
@@ -142,7 +146,7 @@ function ColorSwatch({ color, label }: { color: string; label: string }) {
     <button
       onClick={handleClick}
       className="flex flex-col items-center gap-1 group"
-      title={`${label}: ${color} — Click to apply`}
+      title={`${label}: ${color} — ${t('rightPanel.clickToApply')}`}
     >
       <div
         className="w-8 h-8 rounded border transition-transform group-hover:scale-110"
@@ -154,12 +158,13 @@ function ColorSwatch({ color, label }: { color: string; label: string }) {
 }
 
 function ReadabilityIndicator({ distance }: { distance: number }) {
+  const { t } = useTranslation();
   const minPt = getMinFontSizePt(distance);
   const examples = [
-    { label: 'Title (72pt)', size: 72 },
-    { label: 'Heading (36pt)', size: 36 },
-    { label: 'Body (18pt)', size: 18 },
-    { label: 'Caption (12pt)', size: 12 },
+    { label: t('rightPanel.title72'), size: 72 },
+    { label: t('rightPanel.heading36'), size: 36 },
+    { label: t('rightPanel.body18'), size: 18 },
+    { label: t('rightPanel.caption12'), size: 12 },
   ];
 
   const allFail = examples.every((ex) => checkReadability(ex.size, distance).level === 'fail');
@@ -171,10 +176,10 @@ function ReadabilityIndicator({ distance }: { distance: number }) {
         <div
           className="rounded px-2 py-1.5 mb-2 text-[10px] leading-snug"
           style={{ backgroundColor: '#F59E0B15', border: '1px solid #F59E0B30', color: '#F59E0B' }}
-        >
-          At {distance}m, minimum readable size is <strong>{minPt.toFixed(0)} pt</strong>.
-          Use large display text or reduce viewing distance in Settings.
-        </div>
+          dangerouslySetInnerHTML={{
+            __html: t('rightPanel.readabilityTip', { distance, size: minPt.toFixed(0) }),
+          }}
+        />
       )}
 
       {examples.map(({ label, size }) => {
@@ -189,7 +194,7 @@ function ReadabilityIndicator({ distance }: { distance: number }) {
             <span className="shrink-0" style={{ color: 'var(--color-text-muted)' }}>{label}</span>
             <span className="flex items-center gap-1" style={{ color: colors[result.level] }}>
               <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: colors[result.level] }} />
-              {result.level === 'pass' ? 'OK' : result.level === 'warn' ? 'Marginal' : 'Too small'}
+              {result.level === 'pass' ? t('rightPanel.ok') : result.level === 'warn' ? t('rightPanel.marginal') : t('rightPanel.tooSmall')}
             </span>
           </div>
         );
@@ -197,7 +202,7 @@ function ReadabilityIndicator({ distance }: { distance: number }) {
 
       {/* Show the recommended minimum */}
       <div className="flex items-center justify-between gap-2 text-xs pt-1 border-t mt-1" style={{ borderColor: 'var(--color-border)' }}>
-        <span className="shrink-0 font-medium" style={{ color: 'var(--color-text-muted)' }}>Minimum</span>
+        <span className="shrink-0 font-medium" style={{ color: 'var(--color-text-muted)' }}>{t('rightPanel.minimum')}</span>
         <span className="font-medium">{minPt.toFixed(0)} pt</span>
       </div>
     </div>

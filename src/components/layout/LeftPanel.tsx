@@ -1,4 +1,5 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ShieldAlert, LayoutTemplate, Frame, Shapes, Palette, ImagePlus, RectangleHorizontal, Circle, Minus, ArrowRight, X, Upload, Trash2, Plus } from 'lucide-react';
 import * as fabric from 'fabric';
 import { useUIStore, type LeftPanelTab } from '../../store/ui-store';
@@ -9,15 +10,16 @@ import PictogramPanel from '../../features/pictograms/PictogramPanel';
 import BorderPanel from '../../features/borders/BorderPanel';
 import TemplatePanel from '../../features/templates/TemplatePanel';
 
-const tabs: { id: LeftPanelTab; icon: typeof ShieldAlert; label: string; tabLabel: string }[] = [
-  { id: 'pictograms', icon: ShieldAlert, label: 'Pictograms', tabLabel: 'Signs' },
-  { id: 'templates', icon: LayoutTemplate, label: 'Templates', tabLabel: 'Layout' },
-  { id: 'borders', icon: Frame, label: 'Borders', tabLabel: 'Border' },
-  { id: 'elements', icon: Shapes, label: 'Elements', tabLabel: 'Shapes' },
-  { id: 'brand-kit', icon: Palette, label: 'Brand Kit', tabLabel: 'Brand' },
+const tabDefs: { id: LeftPanelTab; icon: typeof ShieldAlert; labelKey: string; tabLabelKey: string }[] = [
+  { id: 'pictograms', icon: ShieldAlert, labelKey: 'panels.pictograms', tabLabelKey: 'leftPanel.signs' },
+  { id: 'templates', icon: LayoutTemplate, labelKey: 'panels.templates', tabLabelKey: 'leftPanel.layout' },
+  { id: 'borders', icon: Frame, labelKey: 'panels.borders', tabLabelKey: 'leftPanel.border' },
+  { id: 'elements', icon: Shapes, labelKey: 'panels.elements', tabLabelKey: 'leftPanel.shapes' },
+  { id: 'brand-kit', icon: Palette, labelKey: 'leftPanel.brandKit', tabLabelKey: 'leftPanel.brand' },
 ];
 
 export default function LeftPanel() {
+  const { t } = useTranslation();
   const { leftPanelTab, setLeftPanelTab, setLeftPanelOpen } = useUIStore();
 
   return (
@@ -30,10 +32,10 @@ export default function LeftPanel() {
         className="w-14 lg:w-16 flex flex-col items-center py-2 gap-0.5 border-r shrink-0"
         style={{ backgroundColor: 'var(--color-surface)', borderColor: 'var(--color-border)' }}
       >
-        {tabs.map(({ id, icon: Icon, label, tabLabel }) => (
+        {tabDefs.map(({ id, icon: Icon, labelKey, tabLabelKey }) => (
           <button
             key={id}
-            title={label}
+            title={t(labelKey)}
             onClick={() => setLeftPanelTab(id)}
             className="w-[52px] py-1.5 flex flex-col items-center justify-center rounded transition-colors gap-0.5"
             style={{
@@ -42,7 +44,7 @@ export default function LeftPanel() {
             }}
           >
             <Icon size={16} className="lg:!w-[18px] lg:!h-[18px]" />
-            <span className="text-[9px] lg:text-[10px] leading-tight font-medium">{tabLabel}</span>
+            <span className="text-[9px] lg:text-[10px] leading-tight font-medium">{t(tabLabelKey)}</span>
           </button>
         ))}
       </div>
@@ -53,12 +55,12 @@ export default function LeftPanel() {
         style={{ backgroundColor: 'var(--color-surface)' }}
       >
         <div className="px-3 py-2 border-b flex items-center justify-between" style={{ borderColor: 'var(--color-border)' }}>
-          <h3 className="text-sm font-medium">{tabs.find(t => t.id === leftPanelTab)?.label}</h3>
+          <h3 className="text-sm font-medium">{t(tabDefs.find(td => td.id === leftPanelTab)?.labelKey ?? '')}</h3>
           <button
             onClick={() => setLeftPanelOpen(false)}
             className="w-6 h-6 flex items-center justify-center rounded transition-colors opacity-60 hover:opacity-100"
             style={{ color: 'var(--color-text-muted)' }}
-            title="Close panel"
+            title={t('leftPanel.closePanel')}
           >
             <X size={16} />
           </button>
@@ -76,6 +78,7 @@ export default function LeftPanel() {
 }
 
 function ElementsPanel() {
+  const { t } = useTranslation();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const posterDoc = usePosterStore((s) => s.document);
 
@@ -197,10 +200,10 @@ function ElementsPanel() {
           Shapes
         </p>
         <div className="grid grid-cols-2 gap-2">
-          <ShapeButton icon={RectangleHorizontal} label="Rectangle" onClick={() => addShape('rect')} />
-          <ShapeButton icon={Circle} label="Circle" onClick={() => addShape('circle')} />
-          <ShapeButton icon={Minus} label="Line" onClick={() => addShape('line')} />
-          <ShapeButton icon={ArrowRight} label="Arrow" onClick={() => addShape('arrow')} />
+          <ShapeButton icon={RectangleHorizontal} label={t('leftPanel.rectangle')} onClick={() => addShape('rect')} />
+          <ShapeButton icon={Circle} label={t('leftPanel.circle')} onClick={() => addShape('circle')} />
+          <ShapeButton icon={Minus} label={t('leftPanel.line')} onClick={() => addShape('line')} />
+          <ShapeButton icon={ArrowRight} label={t('leftPanel.arrow')} onClick={() => addShape('arrow')} />
         </div>
       </div>
 

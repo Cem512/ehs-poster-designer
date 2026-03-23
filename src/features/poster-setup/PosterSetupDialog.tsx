@@ -411,7 +411,7 @@ export default function PosterSetupDialog() {
                       <div className="w-6 h-6 lg:w-8 lg:h-8 rounded border" style={{ backgroundColor: thm.background, borderColor: 'var(--color-border)' }} />
                     </div>
                     <div className="text-left">
-                      <div className="text-sm lg:text-base font-medium">{thm.label}</div>
+                      <div className="text-sm lg:text-base font-medium">{t(`wizard.theme.themes.${thm.id}`)}</div>
                       <div className="text-xs lg:text-sm" style={{ color: 'var(--color-text-muted)' }}>
                         {t('wizard.theme.signalWord')}: {thm.signalWord}
                       </div>
@@ -444,7 +444,7 @@ export default function PosterSetupDialog() {
               </div>
 
               <div className="grid grid-cols-3 gap-2 lg:gap-3">
-                {COMMON_DISTANCES.slice(0, 6).map(({ label, value }) => (
+                {COMMON_DISTANCES.slice(0, 6).map(({ value }) => (
                   <button
                     key={value}
                     onClick={() => setViewingDistance(value)}
@@ -454,7 +454,7 @@ export default function PosterSetupDialog() {
                       border: `1px solid ${viewingDistance === value ? 'var(--color-mandatory, #003DA5)' : 'var(--color-border)'}`,
                     }}
                   >
-                    {label}
+                    {t(`wizard.viewing.distances.${value}`)}
                   </button>
                 ))}
               </div>
@@ -470,7 +470,7 @@ export default function PosterSetupDialog() {
                   <span style={{ color: 'var(--color-text-muted)' }}>{t('wizard.viewing.summaryFields.size')}</span>
                   <span>{sizeKey} ({orientation === 'portrait' ? t('wizard.size.portrait') : t('wizard.size.landscape')})</span>
                   <span style={{ color: 'var(--color-text-muted)' }}>{t('wizard.viewing.summaryFields.theme')}</span>
-                  <span>{theme.label}</span>
+                  <span>{t(`wizard.theme.themes.${theme.id}`)}</span>
                   <span style={{ color: 'var(--color-text-muted)' }}>{t('wizard.viewing.summaryFields.viewingDistance')}</span>
                   <span>{viewingDistance}m</span>
                 </div>
