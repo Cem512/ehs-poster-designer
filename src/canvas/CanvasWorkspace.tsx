@@ -31,26 +31,34 @@ export default function CanvasWorkspace() {
   useReadabilityOverlay(canvasReady);
   useContrastOverlay(canvasReady);
 
+  // Centralized zoom-to-fit helper
+  const fitCanvasToContainer = useCallback((canvas: fabric.Canvas) => {
+    if (!containerRef.current) return;
+    const containerRect = containerRef.current.getBoundingClientRect();
+    if (containerRect.width === 0 || containerRect.height === 0) return;
+    const dims = getPosterDimensionsPx(posterDoc.size, posterDoc.orientation);
+    const scaleX = (containerRect.width - 80) / dims.width;
+    const scaleY = (containerRect.height - 80) / dims.height;
+    const fitZoom = Math.min(scaleX, scaleY, 1);
+    canvas.setZoom(fitZoom);
+    setZoom(fitZoom);
+
+    const vpt = canvas.viewportTransform;
+    if (vpt) {
+      vpt[4] = (containerRect.width - dims.width * fitZoom) / 2;
+      vpt[5] = (containerRect.height - dims.height * fitZoom) / 2;
+    }
+    canvas.requestRenderAll();
+  }, [posterDoc.size, posterDoc.orientation, setZoom]);
+
   const handleCanvasReady = useCallback((canvas: fabric.Canvas) => {
     setCanvasReady(true);
 
-    // Fit canvas to container
-    if (containerRef.current) {
-      const containerRect = containerRef.current.getBoundingClientRect();
-      const dims = getPosterDimensionsPx(posterDoc.size, posterDoc.orientation);
-      const scaleX = (containerRect.width - 80) / dims.width;
-      const scaleY = (containerRect.height - 80) / dims.height;
-      const fitZoom = Math.min(scaleX, scaleY, 1);
-      canvas.setZoom(fitZoom);
-      setZoom(fitZoom);
-
-      const vpt = canvas.viewportTransform;
-      if (vpt) {
-        vpt[4] = (containerRect.width - dims.width * fitZoom) / 2;
-        vpt[5] = (containerRect.height - dims.height * fitZoom) / 2;
-      }
-      canvas.requestRenderAll();
-    }
+    // Fit canvas to container (immediate + deferred for layout timing)
+    fitCanvasToContainer(canvas);
+    // Re-fit after layout settles (handles cases where container isn't sized yet)
+    requestAnimationFrame(() => fitCanvasToContainer(canvas));
+    setTimeout(() => fitCanvasToContainer(canvas), 100);
 
     // Render border and zones
     renderBorder(canvas, posterDoc);
@@ -68,7 +76,7 @@ export default function CanvasWorkspace() {
     canvas.on('selection:cleared', () => {
       setSelectedObjects([]);
     });
-  }, [posterDoc, setZoom, setSelectedObjects]);
+  }, [posterDoc, setZoom, setSelectedObjects, fitCanvasToContainer]);
 
   // Re-render border/zones when poster config changes
   useEffect(() => {

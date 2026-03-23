@@ -1,8 +1,11 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { Search, SearchX, X } from 'lucide-react';
-import type { PictogramCategory } from '../../types/pictogram';
+import * as fabric from 'fabric';
+import type { PictogramCategory, PictogramEntry } from '../../types/pictogram';
 import { PICTOGRAM_CATEGORY_COLORS } from '../../types/pictogram';
 import { PICTOGRAM_CATALOG } from './pictogram-catalog';
+import { getFabricCanvas } from '../../canvas/FabricCanvas';
+import { mmToPx } from '../../constants/paper-sizes';
 
 const categories: PictogramCategory[] = ['prohibition', 'warning', 'mandatory', 'safe-condition', 'fire-equipment'];
 
@@ -26,6 +29,59 @@ export default function PictogramPanel() {
       counts[cat] = PICTOGRAM_CATALOG.filter(p => p.category === cat).length;
     }
     return counts;
+  }, []);
+
+  /** Click handler — adds pictogram to canvas center */
+  const handlePictogramClick = useCallback((picto: PictogramEntry) => {
+    const canvas = getFabricCanvas();
+    if (!canvas) return;
+
+    const size = mmToPx(50); // ISO minimum 50mm
+    const vpt = canvas.viewportTransform;
+    const zoom = canvas.getZoom();
+    const centerX = (canvas.width! / 2 - (vpt?.[4] || 0)) / zoom;
+    const centerY = (canvas.height! / 2 - (vpt?.[5] || 0)) / zoom;
+
+    fetch(`${import.meta.env.BASE_URL}${picto.svgPath.replace(/^\//, '')}`)
+      .then((res) => res.text())
+      .then((svgText) => {
+        fabric.loadSVGFromString(svgText).then((result) => {
+          const group = fabric.util.groupSVGElements(
+            result.objects.filter(Boolean) as fabric.FabricObject[],
+            result.options
+          );
+          const scale = size / Math.max(group.width || 200, group.height || 200);
+          group.scaleX = scale;
+          group.scaleY = scale;
+          group.set({ left: centerX, top: centerY, originX: 'center', originY: 'center' });
+          (group as any)._pictogramId = picto.id;
+          (group as any)._isoCode = picto.isoCode;
+          (group as any)._pictogramCategory = picto.category;
+          canvas.add(group);
+          canvas.setActiveObject(group);
+          canvas.requestRenderAll();
+        });
+      })
+      .catch((err) => {
+        console.error('SVG load error:', err);
+        // Fallback placeholder
+        const color = PICTOGRAM_CATEGORY_COLORS[picto.category];
+        const shape = new fabric.Circle({
+          radius: size / 2, fill: color + '20', stroke: color, strokeWidth: size * 0.08,
+          originX: 'center', originY: 'center',
+        });
+        const label = new fabric.FabricText(picto.id, {
+          fontSize: size * 0.25, fontFamily: 'Inter, Arial, sans-serif', fontWeight: 'bold',
+          fill: color, originX: 'center', originY: 'center',
+        });
+        const fallbackGroup = new fabric.Group([shape, label], {
+          left: centerX, top: centerY, originX: 'center', originY: 'center',
+        });
+        (fallbackGroup as any)._pictogramId = picto.id;
+        canvas.add(fallbackGroup);
+        canvas.setActiveObject(fallbackGroup);
+        canvas.requestRenderAll();
+      });
   }, []);
 
   const filtered = PICTOGRAM_CATALOG.filter((p) => {
@@ -99,10 +155,11 @@ export default function PictogramPanel() {
           {filtered.map((p) => (
             <div
               key={p.id}
-              className="flex flex-col items-center p-2 rounded cursor-grab transition-colors"
+              className="flex flex-col items-center p-2 rounded cursor-pointer transition-colors hover:bg-[var(--color-surface-hover)]"
               style={{ border: '1px solid var(--color-border)' }}
-              title={`${p.isoCode}: ${p.label}`}
+              title={`${p.isoCode}: ${p.label} — Click to add, or drag to canvas`}
               draggable
+              onClick={() => handlePictogramClick(p)}
               onDragStart={(e) => {
                 e.dataTransfer.setData('application/pictogram', JSON.stringify(p));
               }}
@@ -148,7 +205,7 @@ export default function PictogramPanel() {
 
       {filtered.length > 0 && (
         <p className="text-[10px] text-center" style={{ color: 'var(--color-text-muted)', opacity: 0.6 }}>
-          Drag to canvas to add
+          Click to add or drag to canvas
         </p>
       )}
     </div>

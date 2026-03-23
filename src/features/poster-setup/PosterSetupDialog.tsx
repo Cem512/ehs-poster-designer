@@ -363,7 +363,7 @@ function PurposePosterPreview({ purpose, theme, signalWord }: { purpose: PosterP
 export default function PosterSetupDialog() {
   const { completeSetup } = usePosterStore();
   const [step, setStep] = useState(0);
-  const [purpose, setPurpose] = useState<PosterPurpose>('general');
+  const [purpose, setPurpose] = useState<PosterPurpose | null>(null);
   const [sizeKey, setSizeKey] = useState<PaperSizeKey>('A2');
   const [orientation, setOrientation] = useState<Orientation>('portrait');
   const [theme, setTheme] = useState<SafetyTheme>(SAFETY_THEMES[4]);
@@ -375,13 +375,16 @@ export default function PosterSetupDialog() {
   };
 
   const handleComplete = () => {
-    completeSetup({ purpose, sizeKey, orientation, theme, viewingDistance });
+    completeSetup({ purpose: purpose!, sizeKey, orientation, theme, viewingDistance });
   };
 
   const steps = ['Purpose', 'Size', 'Theme', 'Viewing'];
 
   // Get the display label for purpose (for the summary)
-  const purposeLabel = PURPOSES.find(p => p.id === purpose)?.label ?? purpose;
+  const purposeLabel = purpose ? (PURPOSES.find(p => p.id === purpose)?.label ?? purpose) : '—';
+
+  // Disable Next on step 0 if no purpose selected
+  const canProceed = step !== 0 || purpose !== null;
 
   return (
     <div className="h-full flex items-center justify-center p-4 lg:p-8 overflow-y-auto" style={{ background: 'var(--color-bg)' }}>
@@ -451,6 +454,7 @@ export default function PosterSetupDialog() {
                     style={{
                       backgroundColor: purpose === id ? 'var(--color-surface-hover)' : 'transparent',
                       border: `2px solid ${purpose === id ? t.primary : 'var(--color-border)'}`,
+                      opacity: purpose === null || purpose === id ? 1 : 0.7,
                     }}
                   >
                     {/* Purpose-specific poster preview */}
@@ -658,11 +662,16 @@ export default function PosterSetupDialog() {
           </button>
           {step < steps.length - 1 ? (
             <button
-              onClick={() => setStep(step + 1)}
+              onClick={() => canProceed && setStep(step + 1)}
+              disabled={!canProceed}
               className="px-6 lg:px-8 py-2 lg:py-2.5 rounded lg:rounded-lg text-sm lg:text-base font-medium transition-colors"
-              style={{ backgroundColor: 'var(--color-mandatory, #003DA5)', color: '#fff' }}
+              style={{
+                backgroundColor: canProceed ? 'var(--color-mandatory, #003DA5)' : 'var(--color-border)',
+                color: canProceed ? '#fff' : 'var(--color-text-muted)',
+                cursor: canProceed ? 'pointer' : 'not-allowed',
+              }}
             >
-              Next
+              {step === 0 && !canProceed ? 'Select a purpose' : 'Next'}
             </button>
           ) : (
             <button

@@ -39,7 +39,7 @@ export const useCanvasStore = create<CanvasStore>((set) => ({
   setZoom: (zoom) => set({ zoom: Math.max(0.1, Math.min(5, zoom)) }),
   setPan: (panX, panY) => set({ panX, panY }),
 
-  gridVisible: true,
+  gridVisible: false,
   guidesVisible: true,
   snapEnabled: true,
   gridSizeMm: 10,
