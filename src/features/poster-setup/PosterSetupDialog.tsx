@@ -16,7 +16,7 @@ const PURPOSES: {
   { id: 'ppe', icon: Shield, label: 'PPE Required', desc: 'Personal protective equipment', signalWord: 'MANDATORY' },
   { id: 'danger', icon: AlertTriangle, label: 'Danger Zone', desc: 'Hazardous area warnings', signalWord: 'DANGER' },
   { id: 'emergency', icon: Heart, label: 'Emergency', desc: 'Emergency procedures', signalWord: 'SAFETY' },
-  { id: 'fire', icon: Flame, label: 'Fire Safety', desc: 'Fire equipment & evacuation', signalWord: 'DANGER' },
+  { id: 'fire', icon: Flame, label: 'Fire Safety', desc: 'Fire equipment & evacuation', signalWord: 'FIRE' },
   { id: 'chemical', icon: FlaskConical, label: 'Chemical Hazard', desc: 'Chemical safety & GHS', signalWord: 'WARNING' },
   { id: 'general', icon: Info, label: 'General Safety', desc: 'General safety notices', signalWord: 'NOTICE' },
 ];
