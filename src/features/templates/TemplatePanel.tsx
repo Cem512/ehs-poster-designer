@@ -5,6 +5,8 @@ import { TEMPLATES } from './template-registry';
 import { getFabricCanvas } from '../../canvas/FabricCanvas';
 import { usePosterStore } from '../../store/poster-store';
 import { getPosterDimensionsPx, mmToPx } from '../../constants/paper-sizes';
+import { renderBorder } from '../borders/border-factory';
+import { renderZones } from '../frames/zone-renderer';
 import { showToast } from '../../components/ui/Toast';
 import type { TemplateDefinition } from '../../types/template';
 
@@ -25,7 +27,11 @@ export default function TemplatePanel() {
 
     const dims = getPosterDimensionsPx(posterDoc.size, posterDoc.orientation);
 
-    // Apply the template
+    // Re-render border and zones first (template cleared them)
+    renderBorder(canvas, posterDoc);
+    renderZones(canvas, posterDoc);
+
+    // Apply the template content on top
     template.apply({
       canvas,
       width: dims.width,
