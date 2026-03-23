@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import * as fabric from 'fabric';
 import { getFabricCanvas } from './FabricCanvas';
 import { useCanvasStore } from '../store/canvas-store';
+import { mmToPx } from '../constants/paper-sizes';
 
 const SNAP_THRESHOLD = 8; // px distance to snap
 const GUIDE_COLOR = '#ff00ff';
@@ -18,10 +19,12 @@ interface GuideLine {
  */
 export function useAlignmentGuides(canvasReady: boolean) {
   const guidesVisible = useCanvasStore((s) => s.guidesVisible);
+  const snapEnabled = useCanvasStore((s) => s.snapEnabled);
+  const gridSizeMm = useCanvasStore((s) => s.gridSizeMm);
   const guideObjectsRef = useRef<fabric.FabricObject[]>([]);
 
   useEffect(() => {
-    if (!canvasReady || !guidesVisible) return;
+    if (!canvasReady || (!guidesVisible && !snapEnabled)) return;
     const canvas = getFabricCanvas();
     if (!canvas) return;
 
@@ -80,56 +83,77 @@ export function useAlignmentGuides(canvasReady: boolean) {
       const canvasW = canvas.width!;
       const canvasH = canvas.height!;
 
-      // Collect snap points from other objects
-      const snapPointsX: number[] = [canvasW / 2]; // canvas center
-      const snapPointsY: number[] = [canvasH / 2];
-
-      const objects = canvas.getObjects().filter(
-        (obj) =>
-          obj !== target &&
-          !(obj as any)._isGuide &&
-          obj.selectable !== false // skip border/zone objects from snapping source
-          || (!(obj as any)._isGuide && (obj as any)._customId) // but DO use zones as snap targets
-      );
-
-      for (const obj of objects) {
-        if ((obj as any)._isGuide) continue;
-        const edges = getObjectEdges(obj);
-        snapPointsX.push(edges.left, edges.right, edges.centerX);
-        snapPointsY.push(edges.top, edges.bottom, edges.centerY);
-      }
-
       const guides: GuideLine[] = [];
       let snappedX = false;
       let snappedY = false;
 
-      // Check vertical alignment (X axis)
-      const targetXPoints = [targetEdges.left, targetEdges.right, targetEdges.centerX];
-      for (const tx of targetXPoints) {
-        if (snappedX) break;
-        for (const sx of snapPointsX) {
-          if (Math.abs(tx - sx) < SNAP_THRESHOLD) {
-            // Snap
-            const offset = sx - tx;
-            target.left! += offset;
-            guides.push({ orientation: 'vertical', position: sx });
-            snappedX = true;
-            break;
+      // --- Alignment guide snapping (if enabled) ---
+      if (guidesVisible) {
+        // Collect snap points from other objects
+        const snapPointsX: number[] = [canvasW / 2]; // canvas center
+        const snapPointsY: number[] = [canvasH / 2];
+
+        const objects = canvas.getObjects().filter(
+          (obj) =>
+            obj !== target &&
+            !(obj as any)._isGuide &&
+            obj.selectable !== false // skip border/zone objects from snapping source
+            || (!(obj as any)._isGuide && (obj as any)._customId) // but DO use zones as snap targets
+        );
+
+        for (const obj of objects) {
+          if ((obj as any)._isGuide) continue;
+          const edges = getObjectEdges(obj);
+          snapPointsX.push(edges.left, edges.right, edges.centerX);
+          snapPointsY.push(edges.top, edges.bottom, edges.centerY);
+        }
+
+        // Check vertical alignment (X axis)
+        const targetXPoints = [targetEdges.left, targetEdges.right, targetEdges.centerX];
+        for (const tx of targetXPoints) {
+          if (snappedX) break;
+          for (const sx of snapPointsX) {
+            if (Math.abs(tx - sx) < SNAP_THRESHOLD) {
+              const offset = sx - tx;
+              target.left! += offset;
+              guides.push({ orientation: 'vertical', position: sx });
+              snappedX = true;
+              break;
+            }
+          }
+        }
+
+        // Check horizontal alignment (Y axis)
+        const targetYPoints = [targetEdges.top, targetEdges.bottom, targetEdges.centerY];
+        for (const ty of targetYPoints) {
+          if (snappedY) break;
+          for (const sy of snapPointsY) {
+            if (Math.abs(ty - sy) < SNAP_THRESHOLD) {
+              const offset = sy - ty;
+              target.top! += offset;
+              guides.push({ orientation: 'horizontal', position: sy });
+              snappedY = true;
+              break;
+            }
           }
         }
       }
 
-      // Check horizontal alignment (Y axis)
-      const targetYPoints = [targetEdges.top, targetEdges.bottom, targetEdges.centerY];
-      for (const ty of targetYPoints) {
-        if (snappedY) break;
-        for (const sy of snapPointsY) {
-          if (Math.abs(ty - sy) < SNAP_THRESHOLD) {
-            const offset = sy - ty;
-            target.top! += offset;
-            guides.push({ orientation: 'horizontal', position: sy });
+      // --- Grid snap fallback (if enabled and axis wasn't already snapped) ---
+      if (snapEnabled) {
+        const gridPx = mmToPx(gridSizeMm);
+        if (gridPx > 0) {
+          if (!snappedX) {
+            const left = target.left!;
+            const snappedLeft = Math.round(left / gridPx) * gridPx;
+            target.left = snappedLeft;
+            snappedX = true;
+          }
+          if (!snappedY) {
+            const top = target.top!;
+            const snappedTop = Math.round(top / gridPx) * gridPx;
+            target.top = snappedTop;
             snappedY = true;
-            break;
           }
         }
       }
@@ -137,7 +161,7 @@ export function useAlignmentGuides(canvasReady: boolean) {
       // Draw guides
       guides.forEach(drawGuide);
 
-      if (guides.length > 0) {
+      if (snappedX || snappedY) {
         target.setCoords();
         canvas.requestRenderAll();
       }
@@ -158,5 +182,5 @@ export function useAlignmentGuides(canvasReady: boolean) {
       canvas.off('object:modified', onMovingEnd);
       canvas.off('mouse:up', onMovingEnd);
     };
-  }, [canvasReady, guidesVisible]);
+  }, [canvasReady, guidesVisible, snapEnabled, gridSizeMm]);
 }

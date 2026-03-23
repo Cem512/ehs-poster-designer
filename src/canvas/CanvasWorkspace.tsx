@@ -10,6 +10,9 @@ import { getMinFontSizePt } from '../constants/readability-table';
 import type { PictogramEntry } from '../types/pictogram';
 import { PICTOGRAM_CATEGORY_COLORS } from '../types/pictogram';
 import { useAlignmentGuides } from './useAlignmentGuides';
+import { useGridOverlay } from './useGridOverlay';
+import { useReadabilityOverlay } from './useReadabilityOverlay';
+import { useContrastOverlay } from './useContrastOverlay';
 
 export default function CanvasWorkspace() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -22,8 +25,11 @@ export default function CanvasWorkspace() {
 
   const setZoom = useCanvasStore((s) => s.setZoom);
 
-  // Smart alignment guides
+  // Canvas feature hooks
   useAlignmentGuides(canvasReady);
+  useGridOverlay(canvasReady);
+  useReadabilityOverlay(canvasReady);
+  useContrastOverlay(canvasReady);
 
   const handleCanvasReady = useCallback((canvas: fabric.Canvas) => {
     setCanvasReady(true);
