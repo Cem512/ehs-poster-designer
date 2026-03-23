@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Shield, AlertTriangle, Heart, Flame, FlaskConical, Info, CheckCircle2, Globe } from 'lucide-react';
+import { CheckCircle2, Globe } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { SUPPORTED_LANGUAGES } from '../../i18n/i18n';
 import { usePosterStore } from '../../store/poster-store';
@@ -9,15 +9,6 @@ import { COMMON_DISTANCES } from '../../constants/readability-table';
 import type { PaperSizeKey, Orientation, PosterPurpose, SafetyTheme } from '../../types/poster';
 
 const PURPOSE_IDS: PosterPurpose[] = ['ppe', 'danger', 'emergency', 'fire', 'chemical', 'general'];
-
-const PURPOSE_ICONS: Record<PosterPurpose, typeof Shield> = {
-  ppe: Shield,
-  danger: AlertTriangle,
-  emergency: Heart,
-  fire: Flame,
-  chemical: FlaskConical,
-  general: Info,
-};
 
 /** Signal words shown on poster preview thumbnails (not translated — these are ISO standard) */
 const SIGNAL_WORDS: Record<PosterPurpose, string> = {
@@ -292,12 +283,6 @@ export default function PosterSetupDialog() {
                     <span className="text-xl lg:text-2xl">{lang.flag}</span>
                     <div>
                       <div className="text-sm lg:text-base font-semibold">{lang.label}</div>
-                      {lang.code !== 'en' && (
-                        <div className="text-[10px] lg:text-xs" style={{ color: 'var(--color-text-muted)' }}>
-                          {SUPPORTED_LANGUAGES.find(l => l.code === 'en')!.label === lang.label ? '' :
-                            lang.code.toUpperCase()}
-                        </div>
-                      )}
                     </div>
                     {i18n.language === lang.code && (
                       <CheckCircle2 size={18} className="ml-auto" style={{ color: 'var(--color-mandatory, #003DA5)' }} />
