@@ -1,0 +1,142 @@
+{
+  "app": {
+    "title": "EHS Poster Designer",
+    "subtitle": "Design print-ready safety posters with internationally recognized pictograms"
+  },
+  "features": {
+    "iso": "ISO 7010 pictograms",
+    "dpi": "300 DPI print-ready",
+    "export": "PDF / PNG / SVG export"
+  },
+  "wizard": {
+    "steps": {
+      "language": "Language",
+      "purpose": "Purpose",
+      "size": "Size",
+      "theme": "Theme",
+      "viewing": "Viewing"
+    },
+    "hints": {
+      "language": "Select your preferred interface language. This only affects the application UI — poster text can be in any language.",
+      "purpose": "Choose the type of safety poster you need. Each purpose comes with a matching color theme and signal word.",
+      "size": "Select the print size for your poster. A2 is the most common size for safety signage in workplaces.",
+      "theme": "Pick a color scheme. Colors follow the ISO 3864 standard used in safety signage worldwide.",
+      "viewing": "Set the distance from which people will read this poster. This controls minimum font size recommendations."
+    },
+    "language": {
+      "label": "Interface Language",
+      "description": "Choose your preferred language for the application interface"
+    },
+    "purpose": {
+      "ppe": { "label": "PPE Required", "desc": "Personal protective equipment" },
+      "danger": { "label": "Danger Zone", "desc": "Hazardous area warnings" },
+      "emergency": { "label": "Emergency", "desc": "Emergency procedures" },
+      "fire": { "label": "Fire Safety", "desc": "Fire equipment & evacuation" },
+      "chemical": { "label": "Chemical Hazard", "desc": "Chemical safety & GHS" },
+      "general": { "label": "General Safety", "desc": "General safety notices" }
+    },
+    "size": {
+      "paperSize": "Paper Size",
+      "orientation": "Orientation",
+      "portrait": "Portrait",
+      "landscape": "Landscape",
+      "scaleComparison": "Scale comparison",
+      "sizeRef": {
+        "A0": "Billboard-sized",
+        "A1": "Flip chart",
+        "A2": "Standard poster",
+        "A3": "Tabloid / ledger",
+        "A4": "Office paper"
+      }
+    },
+    "theme": {
+      "label": "Color Theme",
+      "signalWord": "Signal word"
+    },
+    "viewing": {
+      "label": "Intended Viewing Distance",
+      "summary": "Poster Summary",
+      "summaryFields": {
+        "purpose": "Purpose",
+        "size": "Size",
+        "theme": "Theme",
+        "viewingDistance": "Viewing Distance"
+      }
+    },
+    "nav": {
+      "back": "Back",
+      "next": "Next",
+      "selectPurpose": "Select a purpose",
+      "createPoster": "Create Poster"
+    }
+  },
+  "toolbar": {
+    "newPoster": "New Poster",
+    "save": "Save",
+    "undo": "Undo",
+    "redo": "Redo",
+    "zoomIn": "Zoom In",
+    "zoomOut": "Zoom Out",
+    "zoomFit": "Fit to View",
+    "select": "Select Tool",
+    "text": "Text Tool",
+    "pan": "Pan Tool",
+    "grid": "Grid",
+    "snap": "Snap to Grid",
+    "guides": "Smart Guides",
+    "readability": "Readability Check",
+    "contrast": "Contrast Check",
+    "export": "Export"
+  },
+  "panels": {
+    "pictograms": "Pictograms",
+    "templates": "Templates",
+    "borders": "Borders",
+    "elements": "Elements",
+    "properties": "Properties"
+  },
+  "pictograms": {
+    "search": "Search pictograms...",
+    "all": "All",
+    "clickToAdd": "Click to add or drag to canvas",
+    "noResults": "No pictograms found",
+    "noResultsFor": "No results for \"{{query}}\"",
+    "clearFilters": "clear filters",
+    "categories": {
+      "prohibition": "Prohib",
+      "warning": "Warn",
+      "mandatory": "Manda",
+      "safe-condition": "Safe",
+      "fire-equipment": "Fire"
+    }
+  },
+  "templates": {
+    "title": "Templates",
+    "apply": "Apply Template",
+    "applying": "Applying...",
+    "applied": "Template \"{{name}}\" applied",
+    "replaceTitle": "Replace Canvas Content?",
+    "replaceMessage": "Applying <strong>\"{{name}}\"</strong> will replace all existing content on the canvas. This cannot be undone.",
+    "replaceConfirm": "Replace Content",
+    "cancel": "Cancel",
+    "note": "Applying a template replaces all current canvas content. All text is editable after applying."
+  },
+  "export": {
+    "title": "Export Poster",
+    "format": "Format",
+    "dpi": "Resolution (DPI)",
+    "exportBtn": "Export",
+    "exporting": "Exporting..."
+  },
+  "status": {
+    "zoom": "Zoom",
+    "size": "Size",
+    "distance": "Distance"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "close": "Close"
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "app": {
+    "title": "EHS Poster Designer",
+    "subtitle": "Progetta poster di sicurezza pronti per la stampa con pittogrammi riconosciuti a livello internazionale"
+  },
+  "features": {
+    "iso": "Pittogrammi ISO 7010",
+    "dpi": "300 DPI pronto per la stampa",
+    "export": "Esportazione PDF / PNG / SVG"
+  },
+  "wizard": {
+    "steps": {
+      "language": "Lingua",
+      "purpose": "Scopo",
+      "size": "Dimensione",
+      "theme": "Tema",
+      "viewing": "Distanza"
+    },
+    "hints": {
+      "language": "Seleziona la lingua dell'interfaccia preferita. Questo influisce solo sull'interfaccia — il testo del poster può essere in qualsiasi lingua.",
+      "purpose": "Scegli il tipo di poster di sicurezza. Ogni scopo include un tema colore e una parola segnale.",
+      "size": "Seleziona il formato di stampa. A2 è il formato più comune per la segnaletica di sicurezza.",
+      "theme": "Scegli uno schema di colori. I colori seguono lo standard ISO 3864 per la segnaletica di sicurezza.",
+      "viewing": "Imposta la distanza di lettura. Questo controlla le raccomandazioni sulla dimensione minima dei caratteri."
+    },
+    "language": {
+      "label": "Lingua dell'interfaccia",
+      "description": "Scegli la lingua preferita per l'interfaccia dell'applicazione"
+    },
+    "purpose": {
+      "ppe": { "label": "DPI obbligatori", "desc": "Dispositivi di protezione individuale" },
+      "danger": { "label": "Zona di pericolo", "desc": "Avvertenze per aree pericolose" },
+      "emergency": { "label": "Emergenza", "desc": "Procedure di emergenza" },
+      "fire": { "label": "Sicurezza antincendio", "desc": "Attrezzature antincendio ed evacuazione" },
+      "chemical": { "label": "Rischio chimico", "desc": "Sicurezza chimica e GHS" },
+      "general": { "label": "Sicurezza generale", "desc": "Avvisi generali di sicurezza" }
+    },
+    "size": {
+      "paperSize": "Formato carta",
+      "orientation": "Orientamento",
+      "portrait": "Verticale",
+      "landscape": "Orizzontale",
+      "scaleComparison": "Confronto scala",
+      "sizeRef": {
+        "A0": "Formato cartellone",
+        "A1": "Lavagna a fogli",
+        "A2": "Poster standard",
+        "A3": "Formato tabloid",
+        "A4": "Carta da ufficio"
+      }
+    },
+    "theme": {
+      "label": "Tema colori",
+      "signalWord": "Parola segnale"
+    },
+    "viewing": {
+      "label": "Distanza di lettura prevista",
+      "summary": "Riepilogo poster",
+      "summaryFields": {
+        "purpose": "Scopo",
+        "size": "Dimensione",
+        "theme": "Tema",
+        "viewingDistance": "Distanza di lettura"
+      }
+    },
+    "nav": {
+      "back": "Indietro",
+      "next": "Avanti",
+      "selectPurpose": "Seleziona uno scopo",
+      "createPoster": "Crea poster"
+    }
+  },
+  "toolbar": {
+    "newPoster": "Nuovo poster",
+    "save": "Salva",
+    "undo": "Annulla",
+    "redo": "Ripeti",
+    "zoomIn": "Ingrandisci",
+    "zoomOut": "Riduci",
+    "zoomFit": "Adatta alla vista",
+    "select": "Strumento selezione",
+    "text": "Strumento testo",
+    "pan": "Strumento panoramica",
+    "grid": "Griglia",
+    "snap": "Aggancia alla griglia",
+    "guides": "Guide intelligenti",
+    "readability": "Controllo leggibilità",
+    "contrast": "Controllo contrasto",
+    "export": "Esporta"
+  },
+  "panels": {
+    "pictograms": "Pittogrammi",
+    "templates": "Modelli",
+    "borders": "Bordi",
+    "elements": "Elementi",
+    "properties": "Proprietà"
+  },
+  "pictograms": {
+    "search": "Cerca pittogrammi...",
+    "all": "Tutti",
+    "clickToAdd": "Clicca per aggiungere o trascina sulla tela",
+    "noResults": "Nessun pittogramma trovato",
+    "noResultsFor": "Nessun risultato per \"{{query}}\"",
+    "clearFilters": "cancella filtri",
+    "categories": {
+      "prohibition": "Divieto",
+      "warning": "Avviso",
+      "mandatory": "Obbligo",
+      "safe-condition": "Sicurezza",
+      "fire-equipment": "Incendio"
+    }
+  },
+  "templates": {
+    "title": "Modelli",
+    "apply": "Applica modello",
+    "applying": "Applicazione...",
+    "applied": "Modello \"{{name}}\" applicato",
+    "replaceTitle": "Sostituire il contenuto?",
+    "replaceMessage": "L'applicazione di <strong>\"{{name}}\"</strong> sostituirà tutto il contenuto esistente. Questa azione è irreversibile.",
+    "replaceConfirm": "Sostituisci",
+    "cancel": "Annulla",
+    "note": "Un modello sostituisce tutto il contenuto esistente. Tutti i testi sono modificabili dopo l'applicazione."
+  },
+  "export": {
+    "title": "Esporta poster",
+    "format": "Formato",
+    "dpi": "Risoluzione (DPI)",
+    "exportBtn": "Esporta",
+    "exporting": "Esportazione..."
+  },
+  "status": {
+    "zoom": "Zoom",
+    "size": "Dimensione",
+    "distance": "Distanza"
+  },
+  "common": {
+    "cancel": "Annulla",
+    "confirm": "Conferma",
+    "delete": "Elimina",
+    "close": "Chiudi"
+  }
+}

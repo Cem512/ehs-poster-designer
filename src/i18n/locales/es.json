@@ -1,0 +1,142 @@
+{
+  "app": {
+    "title": "EHS Poster Designer",
+    "subtitle": "Diseñe carteles de seguridad listos para imprimir con pictogramas reconocidos internacionalmente"
+  },
+  "features": {
+    "iso": "Pictogramas ISO 7010",
+    "dpi": "300 DPI listo para imprimir",
+    "export": "Exportar PDF / PNG / SVG"
+  },
+  "wizard": {
+    "steps": {
+      "language": "Idioma",
+      "purpose": "Propósito",
+      "size": "Tamaño",
+      "theme": "Tema",
+      "viewing": "Distancia"
+    },
+    "hints": {
+      "language": "Seleccione su idioma de interfaz preferido. Esto solo afecta la interfaz — el texto del cartel puede estar en cualquier idioma.",
+      "purpose": "Elija el tipo de cartel de seguridad. Cada propósito incluye un tema de color y una palabra señal.",
+      "size": "Seleccione el tamaño de impresión. A2 es el tamaño más común para señalización de seguridad.",
+      "theme": "Elija un esquema de colores. Los colores siguen la norma ISO 3864 de señalización de seguridad.",
+      "viewing": "Establezca la distancia de lectura. Esto controla las recomendaciones de tamaño mínimo de fuente."
+    },
+    "language": {
+      "label": "Idioma de la interfaz",
+      "description": "Elija su idioma preferido para la interfaz de la aplicación"
+    },
+    "purpose": {
+      "ppe": { "label": "EPP obligatorio", "desc": "Equipo de protección personal" },
+      "danger": { "label": "Zona de peligro", "desc": "Advertencias de áreas peligrosas" },
+      "emergency": { "label": "Emergencia", "desc": "Procedimientos de emergencia" },
+      "fire": { "label": "Seguridad contra incendios", "desc": "Equipos contra incendios y evacuación" },
+      "chemical": { "label": "Riesgo químico", "desc": "Seguridad química y SGA" },
+      "general": { "label": "Seguridad general", "desc": "Avisos generales de seguridad" }
+    },
+    "size": {
+      "paperSize": "Tamaño de papel",
+      "orientation": "Orientación",
+      "portrait": "Vertical",
+      "landscape": "Horizontal",
+      "scaleComparison": "Comparación de escala",
+      "sizeRef": {
+        "A0": "Tamaño valla",
+        "A1": "Rotafolio",
+        "A2": "Póster estándar",
+        "A3": "Formato tabloide",
+        "A4": "Papel de oficina"
+      }
+    },
+    "theme": {
+      "label": "Tema de colores",
+      "signalWord": "Palabra señal"
+    },
+    "viewing": {
+      "label": "Distancia de lectura prevista",
+      "summary": "Resumen del cartel",
+      "summaryFields": {
+        "purpose": "Propósito",
+        "size": "Tamaño",
+        "theme": "Tema",
+        "viewingDistance": "Distancia de lectura"
+      }
+    },
+    "nav": {
+      "back": "Atrás",
+      "next": "Siguiente",
+      "selectPurpose": "Seleccione un propósito",
+      "createPoster": "Crear cartel"
+    }
+  },
+  "toolbar": {
+    "newPoster": "Nuevo cartel",
+    "save": "Guardar",
+    "undo": "Deshacer",
+    "redo": "Rehacer",
+    "zoomIn": "Acercar",
+    "zoomOut": "Alejar",
+    "zoomFit": "Ajustar a la vista",
+    "select": "Herramienta de selección",
+    "text": "Herramienta de texto",
+    "pan": "Herramienta panorámica",
+    "grid": "Cuadrícula",
+    "snap": "Ajustar a cuadrícula",
+    "guides": "Guías inteligentes",
+    "readability": "Verificar legibilidad",
+    "contrast": "Verificar contraste",
+    "export": "Exportar"
+  },
+  "panels": {
+    "pictograms": "Pictogramas",
+    "templates": "Plantillas",
+    "borders": "Bordes",
+    "elements": "Elementos",
+    "properties": "Propiedades"
+  },
+  "pictograms": {
+    "search": "Buscar pictogramas...",
+    "all": "Todos",
+    "clickToAdd": "Haga clic para agregar o arrastre al lienzo",
+    "noResults": "No se encontraron pictogramas",
+    "noResultsFor": "Sin resultados para \"{{query}}\"",
+    "clearFilters": "borrar filtros",
+    "categories": {
+      "prohibition": "Prohib.",
+      "warning": "Advert.",
+      "mandatory": "Oblig.",
+      "safe-condition": "Segur.",
+      "fire-equipment": "Incendio"
+    }
+  },
+  "templates": {
+    "title": "Plantillas",
+    "apply": "Aplicar plantilla",
+    "applying": "Aplicando...",
+    "applied": "Plantilla \"{{name}}\" aplicada",
+    "replaceTitle": "¿Reemplazar contenido?",
+    "replaceMessage": "Aplicar <strong>\"{{name}}\"</strong> reemplazará todo el contenido existente. Esta acción no se puede deshacer.",
+    "replaceConfirm": "Reemplazar",
+    "cancel": "Cancelar",
+    "note": "Una plantilla reemplaza todo el contenido existente. Todo el texto es editable después de aplicar."
+  },
+  "export": {
+    "title": "Exportar cartel",
+    "format": "Formato",
+    "dpi": "Resolución (DPI)",
+    "exportBtn": "Exportar",
+    "exporting": "Exportando..."
+  },
+  "status": {
+    "zoom": "Zoom",
+    "size": "Tamaño",
+    "distance": "Distancia"
+  },
+  "common": {
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "delete": "Eliminar",
+    "close": "Cerrar"
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "app": {
+    "title": "EHS Poster Designer",
+    "subtitle": "Crie cartazes de segurança prontos para impressão com pictogramas reconhecidos internacionalmente"
+  },
+  "features": {
+    "iso": "Pictogramas ISO 7010",
+    "dpi": "300 DPI pronto para impressão",
+    "export": "Exportação PDF / PNG / SVG"
+  },
+  "wizard": {
+    "steps": {
+      "language": "Idioma",
+      "purpose": "Objetivo",
+      "size": "Tamanho",
+      "theme": "Tema",
+      "viewing": "Distância"
+    },
+    "hints": {
+      "language": "Selecione o idioma da interface. Isto afeta apenas a interface — o texto do cartaz pode ser em qualquer idioma.",
+      "purpose": "Escolha o tipo de cartaz de segurança. Cada objetivo inclui um tema de cores e uma palavra-sinal.",
+      "size": "Selecione o tamanho de impressão. A2 é o tamanho mais comum para sinalização de segurança.",
+      "theme": "Escolha um esquema de cores. As cores seguem a norma ISO 3864 de sinalização de segurança.",
+      "viewing": "Defina a distância de leitura. Isto controla as recomendações de tamanho mínimo de fonte."
+    },
+    "language": {
+      "label": "Idioma da interface",
+      "description": "Escolha o idioma preferido para a interface da aplicação"
+    },
+    "purpose": {
+      "ppe": { "label": "EPI obrigatório", "desc": "Equipamento de proteção individual" },
+      "danger": { "label": "Zona de perigo", "desc": "Avisos de áreas perigosas" },
+      "emergency": { "label": "Emergência", "desc": "Procedimentos de emergência" },
+      "fire": { "label": "Segurança contra incêndios", "desc": "Equipamento contra incêndios e evacuação" },
+      "chemical": { "label": "Risco químico", "desc": "Segurança química e GHS" },
+      "general": { "label": "Segurança geral", "desc": "Avisos gerais de segurança" }
+    },
+    "size": {
+      "paperSize": "Tamanho do papel",
+      "orientation": "Orientação",
+      "portrait": "Retrato",
+      "landscape": "Paisagem",
+      "scaleComparison": "Comparação de escala",
+      "sizeRef": {
+        "A0": "Tamanho outdoor",
+        "A1": "Cavalete",
+        "A2": "Cartaz padrão",
+        "A3": "Formato tabloide",
+        "A4": "Papel de escritório"
+      }
+    },
+    "theme": {
+      "label": "Tema de cores",
+      "signalWord": "Palavra-sinal"
+    },
+    "viewing": {
+      "label": "Distância de leitura prevista",
+      "summary": "Resumo do cartaz",
+      "summaryFields": {
+        "purpose": "Objetivo",
+        "size": "Tamanho",
+        "theme": "Tema",
+        "viewingDistance": "Distância de leitura"
+      }
+    },
+    "nav": {
+      "back": "Voltar",
+      "next": "Seguinte",
+      "selectPurpose": "Selecione um objetivo",
+      "createPoster": "Criar cartaz"
+    }
+  },
+  "toolbar": {
+    "newPoster": "Novo cartaz",
+    "save": "Guardar",
+    "undo": "Desfazer",
+    "redo": "Refazer",
+    "zoomIn": "Ampliar",
+    "zoomOut": "Reduzir",
+    "zoomFit": "Ajustar à vista",
+    "select": "Ferramenta de seleção",
+    "text": "Ferramenta de texto",
+    "pan": "Ferramenta de panorâmica",
+    "grid": "Grelha",
+    "snap": "Alinhar à grelha",
+    "guides": "Guias inteligentes",
+    "readability": "Verificação de legibilidade",
+    "contrast": "Verificação de contraste",
+    "export": "Exportar"
+  },
+  "panels": {
+    "pictograms": "Pictogramas",
+    "templates": "Modelos",
+    "borders": "Bordas",
+    "elements": "Elementos",
+    "properties": "Propriedades"
+  },
+  "pictograms": {
+    "search": "Pesquisar pictogramas...",
+    "all": "Todos",
+    "clickToAdd": "Clique para adicionar ou arraste para a tela",
+    "noResults": "Nenhum pictograma encontrado",
+    "noResultsFor": "Sem resultados para \"{{query}}\"",
+    "clearFilters": "limpar filtros",
+    "categories": {
+      "prohibition": "Proib.",
+      "warning": "Aviso",
+      "mandatory": "Obrig.",
+      "safe-condition": "Segur.",
+      "fire-equipment": "Incêndio"
+    }
+  },
+  "templates": {
+    "title": "Modelos",
+    "apply": "Aplicar modelo",
+    "applying": "A aplicar...",
+    "applied": "Modelo \"{{name}}\" aplicado",
+    "replaceTitle": "Substituir conteúdo?",
+    "replaceMessage": "Aplicar <strong>\"{{name}}\"</strong> substituirá todo o conteúdo existente. Esta ação não pode ser desfeita.",
+    "replaceConfirm": "Substituir",
+    "cancel": "Cancelar",
+    "note": "Um modelo substitui todo o conteúdo existente. Todo o texto é editável após a aplicação."
+  },
+  "export": {
+    "title": "Exportar cartaz",
+    "format": "Formato",
+    "dpi": "Resolução (DPI)",
+    "exportBtn": "Exportar",
+    "exporting": "A exportar..."
+  },
+  "status": {
+    "zoom": "Zoom",
+    "size": "Tamanho",
+    "distance": "Distância"
+  },
+  "common": {
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "delete": "Eliminar",
+    "close": "Fechar"
+  }
+}

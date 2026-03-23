@@ -1,0 +1,142 @@
+{
+  "app": {
+    "title": "EHS Poster Tasarımcısı",
+    "subtitle": "Uluslararası standartlarda güvenlik posterleri tasarlayın"
+  },
+  "features": {
+    "iso": "ISO 7010 piktogramlar",
+    "dpi": "300 DPI baskıya hazır",
+    "export": "PDF / PNG / SVG dışa aktarım"
+  },
+  "wizard": {
+    "steps": {
+      "language": "Dil",
+      "purpose": "Amaç",
+      "size": "Boyut",
+      "theme": "Tema",
+      "viewing": "Görüş"
+    },
+    "hints": {
+      "language": "Tercih ettiğiniz arayüz dilini seçin. Bu yalnızca uygulama arayüzünü etkiler — poster metni herhangi bir dilde olabilir.",
+      "purpose": "İhtiyacınız olan güvenlik posteri türünü seçin. Her amaç, eşleşen bir renk teması ve sinyal kelimesiyle birlikte gelir.",
+      "size": "Posteriniz için baskı boyutunu seçin. A2, iş yerlerinde güvenlik tabelaları için en yaygın boyuttur.",
+      "theme": "Bir renk şeması seçin. Renkler, dünya genelinde güvenlik tabelalarında kullanılan ISO 3864 standardını takip eder.",
+      "viewing": "Bu posteri insanların okuyacağı mesafeyi ayarlayın. Bu, minimum yazı tipi boyutu önerilerini kontrol eder."
+    },
+    "language": {
+      "label": "Arayüz Dili",
+      "description": "Uygulama arayüzü için tercih ettiğiniz dili seçin"
+    },
+    "purpose": {
+      "ppe": { "label": "KKD Gerekli", "desc": "Kişisel koruyucu donanım" },
+      "danger": { "label": "Tehlike Bölgesi", "desc": "Tehlikeli alan uyarıları" },
+      "emergency": { "label": "Acil Durum", "desc": "Acil durum prosedürleri" },
+      "fire": { "label": "Yangın Güvenliği", "desc": "Yangın ekipmanı ve tahliye" },
+      "chemical": { "label": "Kimyasal Tehlike", "desc": "Kimyasal güvenlik ve GHS" },
+      "general": { "label": "Genel Güvenlik", "desc": "Genel güvenlik bildirimleri" }
+    },
+    "size": {
+      "paperSize": "Kağıt Boyutu",
+      "orientation": "Yönlendirme",
+      "portrait": "Dikey",
+      "landscape": "Yatay",
+      "scaleComparison": "Ölçek karşılaştırması",
+      "sizeRef": {
+        "A0": "Reklam panosu boyutu",
+        "A1": "Flipchart",
+        "A2": "Standart poster",
+        "A3": "Tabloid boyut",
+        "A4": "Ofis kağıdı"
+      }
+    },
+    "theme": {
+      "label": "Renk Teması",
+      "signalWord": "Sinyal kelimesi"
+    },
+    "viewing": {
+      "label": "Hedef Görüş Mesafesi",
+      "summary": "Poster Özeti",
+      "summaryFields": {
+        "purpose": "Amaç",
+        "size": "Boyut",
+        "theme": "Tema",
+        "viewingDistance": "Görüş Mesafesi"
+      }
+    },
+    "nav": {
+      "back": "Geri",
+      "next": "İleri",
+      "selectPurpose": "Bir amaç seçin",
+      "createPoster": "Poster Oluştur"
+    }
+  },
+  "toolbar": {
+    "newPoster": "Yeni Poster",
+    "save": "Kaydet",
+    "undo": "Geri Al",
+    "redo": "Yinele",
+    "zoomIn": "Yakınlaştır",
+    "zoomOut": "Uzaklaştır",
+    "zoomFit": "Ekrana Sığdır",
+    "select": "Seçim Aracı",
+    "text": "Metin Aracı",
+    "pan": "Kaydırma Aracı",
+    "grid": "Izgara",
+    "snap": "Izgaraya Yapış",
+    "guides": "Akıllı Kılavuzlar",
+    "readability": "Okunabilirlik Kontrolü",
+    "contrast": "Kontrast Kontrolü",
+    "export": "Dışa Aktar"
+  },
+  "panels": {
+    "pictograms": "Piktogramlar",
+    "templates": "Şablonlar",
+    "borders": "Kenarlıklar",
+    "elements": "Öğeler",
+    "properties": "Özellikler"
+  },
+  "pictograms": {
+    "search": "Piktogram ara...",
+    "all": "Tümü",
+    "clickToAdd": "Eklemek için tıklayın veya tuvale sürükleyin",
+    "noResults": "Piktogram bulunamadı",
+    "noResultsFor": "\"{{query}}\" için sonuç yok",
+    "clearFilters": "filtreleri temizle",
+    "categories": {
+      "prohibition": "Yasak",
+      "warning": "Uyarı",
+      "mandatory": "Zorunlu",
+      "safe-condition": "Güvenli",
+      "fire-equipment": "Yangın"
+    }
+  },
+  "templates": {
+    "title": "Şablonlar",
+    "apply": "Şablonu Uygula",
+    "applying": "Uygulanıyor...",
+    "applied": "\"{{name}}\" şablonu uygulandı",
+    "replaceTitle": "Tuval İçeriği Değiştirilsin mi?",
+    "replaceMessage": "<strong>\"{{name}}\"</strong> uygulamak tuvaldeki mevcut tüm içeriği değiştirecektir. Bu işlem geri alınamaz.",
+    "replaceConfirm": "İçeriği Değiştir",
+    "cancel": "İptal",
+    "note": "Şablon uygulamak mevcut tuval içeriğinin tamamını değiştirir. Tüm metinler uygulandıktan sonra düzenlenebilir."
+  },
+  "export": {
+    "title": "Posteri Dışa Aktar",
+    "format": "Format",
+    "dpi": "Çözünürlük (DPI)",
+    "exportBtn": "Dışa Aktar",
+    "exporting": "Dışa aktarılıyor..."
+  },
+  "status": {
+    "zoom": "Yakınlaştırma",
+    "size": "Boyut",
+    "distance": "Mesafe"
+  },
+  "common": {
+    "cancel": "İptal",
+    "confirm": "Onayla",
+    "delete": "Sil",
+    "close": "Kapat"
+  }
+}

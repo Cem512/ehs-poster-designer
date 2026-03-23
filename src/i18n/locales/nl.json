@@ -1,0 +1,142 @@
+{
+  "app": {
+    "title": "EHS Poster Designer",
+    "subtitle": "Ontwerp drukklare veiligheidsposters met internationaal erkende pictogrammen"
+  },
+  "features": {
+    "iso": "ISO 7010 pictogrammen",
+    "dpi": "300 DPI drukklaar",
+    "export": "PDF / PNG / SVG export"
+  },
+  "wizard": {
+    "steps": {
+      "language": "Taal",
+      "purpose": "Doel",
+      "size": "Formaat",
+      "theme": "Thema",
+      "viewing": "Afstand"
+    },
+    "hints": {
+      "language": "Selecteer uw voorkeurstaal voor de interface. Dit beïnvloedt alleen de applicatie — postertekst kan in elke taal zijn.",
+      "purpose": "Kies het type veiligheidsposter. Elk doel bevat een bijpassend kleurthema en signaalwoord.",
+      "size": "Selecteer het afdrukformaat. A2 is het meest gangbare formaat voor veiligheidsborden.",
+      "theme": "Kies een kleurenschema. De kleuren volgen de ISO 3864 norm voor veiligheidssignalering.",
+      "viewing": "Stel de leesafstand in. Dit bepaalt de minimale aanbevolen lettergrootte."
+    },
+    "language": {
+      "label": "Interfacetaal",
+      "description": "Kies uw voorkeurstaal voor de applicatie-interface"
+    },
+    "purpose": {
+      "ppe": { "label": "PBM vereist", "desc": "Persoonlijke beschermingsmiddelen" },
+      "danger": { "label": "Gevarenzone", "desc": "Waarschuwingen voor gevaarlijke gebieden" },
+      "emergency": { "label": "Noodgeval", "desc": "Noodprocedures" },
+      "fire": { "label": "Brandveiligheid", "desc": "Brandbestrijding en evacuatie" },
+      "chemical": { "label": "Chemisch gevaar", "desc": "Chemische veiligheid en GHS" },
+      "general": { "label": "Algemene veiligheid", "desc": "Algemene veiligheidsmededelingen" }
+    },
+    "size": {
+      "paperSize": "Papierformaat",
+      "orientation": "Oriëntatie",
+      "portrait": "Staand",
+      "landscape": "Liggend",
+      "scaleComparison": "Schaalvergelijking",
+      "sizeRef": {
+        "A0": "Billboardformaat",
+        "A1": "Flipover",
+        "A2": "Standaard poster",
+        "A3": "Tabloidformaat",
+        "A4": "Kantoopapier"
+      }
+    },
+    "theme": {
+      "label": "Kleurenthema",
+      "signalWord": "Signaalwoord"
+    },
+    "viewing": {
+      "label": "Beoogde leesafstand",
+      "summary": "Poster samenvatting",
+      "summaryFields": {
+        "purpose": "Doel",
+        "size": "Formaat",
+        "theme": "Thema",
+        "viewingDistance": "Leesafstand"
+      }
+    },
+    "nav": {
+      "back": "Terug",
+      "next": "Volgende",
+      "selectPurpose": "Selecteer een doel",
+      "createPoster": "Poster maken"
+    }
+  },
+  "toolbar": {
+    "newPoster": "Nieuwe poster",
+    "save": "Opslaan",
+    "undo": "Ongedaan maken",
+    "redo": "Opnieuw",
+    "zoomIn": "Inzoomen",
+    "zoomOut": "Uitzoomen",
+    "zoomFit": "Passend maken",
+    "select": "Selectiegereedschap",
+    "text": "Tekstgereedschap",
+    "pan": "Verschuiven",
+    "grid": "Raster",
+    "snap": "Uitlijnen op raster",
+    "guides": "Slimme hulplijnen",
+    "readability": "Leesbaarheidscontrole",
+    "contrast": "Contrastcontrole",
+    "export": "Exporteren"
+  },
+  "panels": {
+    "pictograms": "Pictogrammen",
+    "templates": "Sjablonen",
+    "borders": "Randen",
+    "elements": "Elementen",
+    "properties": "Eigenschappen"
+  },
+  "pictograms": {
+    "search": "Pictogrammen zoeken...",
+    "all": "Alle",
+    "clickToAdd": "Klik om toe te voegen of sleep naar het canvas",
+    "noResults": "Geen pictogrammen gevonden",
+    "noResultsFor": "Geen resultaten voor \"{{query}}\"",
+    "clearFilters": "filters wissen",
+    "categories": {
+      "prohibition": "Verbod",
+      "warning": "Waarsch.",
+      "mandatory": "Gebod",
+      "safe-condition": "Veilig",
+      "fire-equipment": "Brand"
+    }
+  },
+  "templates": {
+    "title": "Sjablonen",
+    "apply": "Sjabloon toepassen",
+    "applying": "Wordt toegepast...",
+    "applied": "Sjabloon \"{{name}}\" toegepast",
+    "replaceTitle": "Inhoud vervangen?",
+    "replaceMessage": "Het toepassen van <strong>\"{{name}}\"</strong> vervangt alle bestaande inhoud. Dit kan niet ongedaan worden gemaakt.",
+    "replaceConfirm": "Vervangen",
+    "cancel": "Annuleren",
+    "note": "Een sjabloon vervangt alle bestaande inhoud. Alle tekst is bewerkbaar na toepassing."
+  },
+  "export": {
+    "title": "Poster exporteren",
+    "format": "Formaat",
+    "dpi": "Resolutie (DPI)",
+    "exportBtn": "Exporteren",
+    "exporting": "Wordt geëxporteerd..."
+  },
+  "status": {
+    "zoom": "Zoom",
+    "size": "Formaat",
+    "distance": "Afstand"
+  },
+  "common": {
+    "cancel": "Annuleren",
+    "confirm": "Bevestigen",
+    "delete": "Verwijderen",
+    "close": "Sluiten"
+  }
+}

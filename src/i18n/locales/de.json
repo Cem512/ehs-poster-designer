@@ -1,0 +1,142 @@
+{
+  "app": {
+    "title": "EHS Poster Designer",
+    "subtitle": "Druckfertige Sicherheitsposter mit international anerkannten Piktogrammen gestalten"
+  },
+  "features": {
+    "iso": "ISO 7010 Piktogramme",
+    "dpi": "300 DPI druckfertig",
+    "export": "PDF / PNG / SVG Export"
+  },
+  "wizard": {
+    "steps": {
+      "language": "Sprache",
+      "purpose": "Zweck",
+      "size": "Größe",
+      "theme": "Thema",
+      "viewing": "Abstand"
+    },
+    "hints": {
+      "language": "Wählen Sie Ihre bevorzugte Oberflächensprache. Dies betrifft nur die Benutzeroberfläche — Postertexte können in jeder Sprache sein.",
+      "purpose": "Wählen Sie die Art des Sicherheitsposters. Jeder Zweck enthält ein passendes Farbschema und Signalwort.",
+      "size": "Wählen Sie die Druckgröße für Ihr Poster. A2 ist die gängigste Größe für Sicherheitsbeschilderung.",
+      "theme": "Wählen Sie ein Farbschema. Die Farben folgen dem ISO 3864 Standard für Sicherheitsbeschilderung.",
+      "viewing": "Legen Sie den Betrachtungsabstand fest. Dies steuert die Mindestschriftgröße."
+    },
+    "language": {
+      "label": "Oberflächensprache",
+      "description": "Wählen Sie Ihre bevorzugte Sprache für die Benutzeroberfläche"
+    },
+    "purpose": {
+      "ppe": { "label": "PSA erforderlich", "desc": "Persönliche Schutzausrüstung" },
+      "danger": { "label": "Gefahrenzone", "desc": "Warnungen für Gefahrenbereiche" },
+      "emergency": { "label": "Notfall", "desc": "Notfallverfahren" },
+      "fire": { "label": "Brandschutz", "desc": "Brandschutzausrüstung & Evakuierung" },
+      "chemical": { "label": "Chemische Gefahr", "desc": "Chemische Sicherheit & GHS" },
+      "general": { "label": "Allgemeine Sicherheit", "desc": "Allgemeine Sicherheitshinweise" }
+    },
+    "size": {
+      "paperSize": "Papiergröße",
+      "orientation": "Ausrichtung",
+      "portrait": "Hochformat",
+      "landscape": "Querformat",
+      "scaleComparison": "Größenvergleich",
+      "sizeRef": {
+        "A0": "Plakatwandgröße",
+        "A1": "Flipchart",
+        "A2": "Standardposter",
+        "A3": "Tabloid-Format",
+        "A4": "Büropapier"
+      }
+    },
+    "theme": {
+      "label": "Farbschema",
+      "signalWord": "Signalwort"
+    },
+    "viewing": {
+      "label": "Betrachtungsabstand",
+      "summary": "Poster-Zusammenfassung",
+      "summaryFields": {
+        "purpose": "Zweck",
+        "size": "Größe",
+        "theme": "Thema",
+        "viewingDistance": "Betrachtungsabstand"
+      }
+    },
+    "nav": {
+      "back": "Zurück",
+      "next": "Weiter",
+      "selectPurpose": "Zweck auswählen",
+      "createPoster": "Poster erstellen"
+    }
+  },
+  "toolbar": {
+    "newPoster": "Neues Poster",
+    "save": "Speichern",
+    "undo": "Rückgängig",
+    "redo": "Wiederholen",
+    "zoomIn": "Vergrößern",
+    "zoomOut": "Verkleinern",
+    "zoomFit": "Einpassen",
+    "select": "Auswahlwerkzeug",
+    "text": "Textwerkzeug",
+    "pan": "Verschieben",
+    "grid": "Raster",
+    "snap": "Am Raster einrasten",
+    "guides": "Intelligente Hilfslinien",
+    "readability": "Lesbarkeitscheck",
+    "contrast": "Kontrastcheck",
+    "export": "Exportieren"
+  },
+  "panels": {
+    "pictograms": "Piktogramme",
+    "templates": "Vorlagen",
+    "borders": "Rahmen",
+    "elements": "Elemente",
+    "properties": "Eigenschaften"
+  },
+  "pictograms": {
+    "search": "Piktogramme suchen...",
+    "all": "Alle",
+    "clickToAdd": "Klicken zum Hinzufügen oder auf die Leinwand ziehen",
+    "noResults": "Keine Piktogramme gefunden",
+    "noResultsFor": "Keine Ergebnisse für \"{{query}}\"",
+    "clearFilters": "Filter zurücksetzen",
+    "categories": {
+      "prohibition": "Verbot",
+      "warning": "Warnung",
+      "mandatory": "Gebot",
+      "safe-condition": "Rettung",
+      "fire-equipment": "Brand"
+    }
+  },
+  "templates": {
+    "title": "Vorlagen",
+    "apply": "Vorlage anwenden",
+    "applying": "Wird angewendet...",
+    "applied": "Vorlage \"{{name}}\" angewendet",
+    "replaceTitle": "Inhalt ersetzen?",
+    "replaceMessage": "Die Anwendung von <strong>\"{{name}}\"</strong> ersetzt den gesamten Inhalt. Dies kann nicht rückgängig gemacht werden.",
+    "replaceConfirm": "Inhalt ersetzen",
+    "cancel": "Abbrechen",
+    "note": "Eine Vorlage ersetzt den gesamten Inhalt. Alle Texte sind nach der Anwendung bearbeitbar."
+  },
+  "export": {
+    "title": "Poster exportieren",
+    "format": "Format",
+    "dpi": "Auflösung (DPI)",
+    "exportBtn": "Exportieren",
+    "exporting": "Wird exportiert..."
+  },
+  "status": {
+    "zoom": "Zoom",
+    "size": "Größe",
+    "distance": "Abstand"
+  },
+  "common": {
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "delete": "Löschen",
+    "close": "Schließen"
+  }
+}

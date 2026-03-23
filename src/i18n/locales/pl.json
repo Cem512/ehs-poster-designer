@@ -1,0 +1,142 @@
+{
+  "app": {
+    "title": "EHS Poster Designer",
+    "subtitle": "Projektuj gotowe do druku plakaty bezpieczeństwa z międzynarodowo uznanymi piktogramami"
+  },
+  "features": {
+    "iso": "Piktogramy ISO 7010",
+    "dpi": "300 DPI gotowe do druku",
+    "export": "Eksport PDF / PNG / SVG"
+  },
+  "wizard": {
+    "steps": {
+      "language": "Język",
+      "purpose": "Cel",
+      "size": "Rozmiar",
+      "theme": "Motyw",
+      "viewing": "Odległość"
+    },
+    "hints": {
+      "language": "Wybierz preferowany język interfejsu. Dotyczy to tylko interfejsu aplikacji — tekst plakatu może być w dowolnym języku.",
+      "purpose": "Wybierz rodzaj plakatu bezpieczeństwa. Każdy cel zawiera dopasowany schemat kolorów i słowo sygnałowe.",
+      "size": "Wybierz rozmiar druku. A2 to najczęstszy rozmiar oznakowań bezpieczeństwa.",
+      "theme": "Wybierz schemat kolorów. Kolory odpowiadają normie ISO 3864 dotyczącej oznakowań bezpieczeństwa.",
+      "viewing": "Ustaw odległość czytania. To kontroluje zalecenia dotyczące minimalnego rozmiaru czcionki."
+    },
+    "language": {
+      "label": "Język interfejsu",
+      "description": "Wybierz preferowany język interfejsu aplikacji"
+    },
+    "purpose": {
+      "ppe": { "label": "ŚOI wymagane", "desc": "Środki ochrony indywidualnej" },
+      "danger": { "label": "Strefa niebezpieczna", "desc": "Ostrzeżenia o strefach niebezpiecznych" },
+      "emergency": { "label": "Awaria", "desc": "Procedury awaryjne" },
+      "fire": { "label": "Bezpieczeństwo pożarowe", "desc": "Sprzęt pożarowy i ewakuacja" },
+      "chemical": { "label": "Zagrożenie chemiczne", "desc": "Bezpieczeństwo chemiczne i GHS" },
+      "general": { "label": "Bezpieczeństwo ogólne", "desc": "Ogólne komunikaty bezpieczeństwa" }
+    },
+    "size": {
+      "paperSize": "Rozmiar papieru",
+      "orientation": "Orientacja",
+      "portrait": "Pionowa",
+      "landscape": "Pozioma",
+      "scaleComparison": "Porównanie skali",
+      "sizeRef": {
+        "A0": "Rozmiar billboardu",
+        "A1": "Flipchart",
+        "A2": "Standardowy plakat",
+        "A3": "Format tabloidowy",
+        "A4": "Papier biurowy"
+      }
+    },
+    "theme": {
+      "label": "Motyw kolorów",
+      "signalWord": "Słowo sygnałowe"
+    },
+    "viewing": {
+      "label": "Planowana odległość czytania",
+      "summary": "Podsumowanie plakatu",
+      "summaryFields": {
+        "purpose": "Cel",
+        "size": "Rozmiar",
+        "theme": "Motyw",
+        "viewingDistance": "Odległość czytania"
+      }
+    },
+    "nav": {
+      "back": "Wstecz",
+      "next": "Dalej",
+      "selectPurpose": "Wybierz cel",
+      "createPoster": "Utwórz plakat"
+    }
+  },
+  "toolbar": {
+    "newPoster": "Nowy plakat",
+    "save": "Zapisz",
+    "undo": "Cofnij",
+    "redo": "Ponów",
+    "zoomIn": "Powiększ",
+    "zoomOut": "Pomniejsz",
+    "zoomFit": "Dopasuj do widoku",
+    "select": "Narzędzie zaznaczania",
+    "text": "Narzędzie tekstowe",
+    "pan": "Narzędzie przesuwania",
+    "grid": "Siatka",
+    "snap": "Przyciągaj do siatki",
+    "guides": "Inteligentne prowadnice",
+    "readability": "Kontrola czytelności",
+    "contrast": "Kontrola kontrastu",
+    "export": "Eksportuj"
+  },
+  "panels": {
+    "pictograms": "Piktogramy",
+    "templates": "Szablony",
+    "borders": "Ramki",
+    "elements": "Elementy",
+    "properties": "Właściwości"
+  },
+  "pictograms": {
+    "search": "Szukaj piktogramów...",
+    "all": "Wszystkie",
+    "clickToAdd": "Kliknij, aby dodać lub przeciągnij na płótno",
+    "noResults": "Nie znaleziono piktogramów",
+    "noResultsFor": "Brak wyników dla \"{{query}}\"",
+    "clearFilters": "wyczyść filtry",
+    "categories": {
+      "prohibition": "Zakaz",
+      "warning": "Ostrzeż.",
+      "mandatory": "Nakaz",
+      "safe-condition": "Bezp.",
+      "fire-equipment": "Pożar"
+    }
+  },
+  "templates": {
+    "title": "Szablony",
+    "apply": "Zastosuj szablon",
+    "applying": "Stosowanie...",
+    "applied": "Szablon \"{{name}}\" zastosowany",
+    "replaceTitle": "Zastąpić zawartość?",
+    "replaceMessage": "Zastosowanie <strong>\"{{name}}\"</strong> zastąpi całą istniejącą zawartość. Tej operacji nie można cofnąć.",
+    "replaceConfirm": "Zastąp",
+    "cancel": "Anuluj",
+    "note": "Szablon zastępuje całą istniejącą zawartość. Cały tekst jest edytowalny po zastosowaniu."
+  },
+  "export": {
+    "title": "Eksportuj plakat",
+    "format": "Format",
+    "dpi": "Rozdzielczość (DPI)",
+    "exportBtn": "Eksportuj",
+    "exporting": "Eksportowanie..."
+  },
+  "status": {
+    "zoom": "Zoom",
+    "size": "Rozmiar",
+    "distance": "Odległość"
+  },
+  "common": {
+    "cancel": "Anuluj",
+    "confirm": "Potwierdź",
+    "delete": "Usuń",
+    "close": "Zamknij"
+  }
+}

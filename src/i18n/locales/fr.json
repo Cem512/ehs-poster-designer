@@ -1,0 +1,142 @@
+{
+  "app": {
+    "title": "EHS Poster Designer",
+    "subtitle": "Concevez des affiches de sécurité prêtes à imprimer avec des pictogrammes internationaux"
+  },
+  "features": {
+    "iso": "Pictogrammes ISO 7010",
+    "dpi": "300 DPI prêt à imprimer",
+    "export": "Export PDF / PNG / SVG"
+  },
+  "wizard": {
+    "steps": {
+      "language": "Langue",
+      "purpose": "Objectif",
+      "size": "Taille",
+      "theme": "Thème",
+      "viewing": "Distance"
+    },
+    "hints": {
+      "language": "Sélectionnez votre langue d'interface préférée. Cela n'affecte que l'interface — le texte de l'affiche peut être dans n'importe quelle langue.",
+      "purpose": "Choisissez le type d'affiche de sécurité. Chaque objectif est associé à un thème de couleur et un mot-signal.",
+      "size": "Sélectionnez la taille d'impression. A2 est la taille la plus courante pour la signalisation de sécurité.",
+      "theme": "Choisissez un schéma de couleurs. Les couleurs suivent la norme ISO 3864 pour la signalisation de sécurité.",
+      "viewing": "Définissez la distance de lecture. Cela détermine la taille minimale de police recommandée."
+    },
+    "language": {
+      "label": "Langue de l'interface",
+      "description": "Choisissez votre langue préférée pour l'interface"
+    },
+    "purpose": {
+      "ppe": { "label": "EPI obligatoire", "desc": "Équipement de protection individuelle" },
+      "danger": { "label": "Zone de danger", "desc": "Avertissements de zones dangereuses" },
+      "emergency": { "label": "Urgence", "desc": "Procédures d'urgence" },
+      "fire": { "label": "Sécurité incendie", "desc": "Équipement incendie et évacuation" },
+      "chemical": { "label": "Risque chimique", "desc": "Sécurité chimique et SGH" },
+      "general": { "label": "Sécurité générale", "desc": "Avis de sécurité généraux" }
+    },
+    "size": {
+      "paperSize": "Format papier",
+      "orientation": "Orientation",
+      "portrait": "Portrait",
+      "landscape": "Paysage",
+      "scaleComparison": "Comparaison d'échelle",
+      "sizeRef": {
+        "A0": "Taille panneau",
+        "A1": "Paperboard",
+        "A2": "Affiche standard",
+        "A3": "Format tabloïd",
+        "A4": "Papier bureau"
+      }
+    },
+    "theme": {
+      "label": "Thème de couleurs",
+      "signalWord": "Mot-signal"
+    },
+    "viewing": {
+      "label": "Distance de lecture prévue",
+      "summary": "Résumé de l'affiche",
+      "summaryFields": {
+        "purpose": "Objectif",
+        "size": "Taille",
+        "theme": "Thème",
+        "viewingDistance": "Distance de lecture"
+      }
+    },
+    "nav": {
+      "back": "Retour",
+      "next": "Suivant",
+      "selectPurpose": "Choisir un objectif",
+      "createPoster": "Créer l'affiche"
+    }
+  },
+  "toolbar": {
+    "newPoster": "Nouvelle affiche",
+    "save": "Enregistrer",
+    "undo": "Annuler",
+    "redo": "Rétablir",
+    "zoomIn": "Zoom avant",
+    "zoomOut": "Zoom arrière",
+    "zoomFit": "Ajuster à la vue",
+    "select": "Outil de sélection",
+    "text": "Outil texte",
+    "pan": "Outil panoramique",
+    "grid": "Grille",
+    "snap": "Aligner sur la grille",
+    "guides": "Guides intelligents",
+    "readability": "Vérification de lisibilité",
+    "contrast": "Vérification du contraste",
+    "export": "Exporter"
+  },
+  "panels": {
+    "pictograms": "Pictogrammes",
+    "templates": "Modèles",
+    "borders": "Bordures",
+    "elements": "Éléments",
+    "properties": "Propriétés"
+  },
+  "pictograms": {
+    "search": "Rechercher des pictogrammes...",
+    "all": "Tous",
+    "clickToAdd": "Cliquez pour ajouter ou glissez sur le canevas",
+    "noResults": "Aucun pictogramme trouvé",
+    "noResultsFor": "Aucun résultat pour \"{{query}}\"",
+    "clearFilters": "effacer les filtres",
+    "categories": {
+      "prohibition": "Interdit",
+      "warning": "Danger",
+      "mandatory": "Oblig.",
+      "safe-condition": "Sécurité",
+      "fire-equipment": "Incendie"
+    }
+  },
+  "templates": {
+    "title": "Modèles",
+    "apply": "Appliquer le modèle",
+    "applying": "Application...",
+    "applied": "Modèle \"{{name}}\" appliqué",
+    "replaceTitle": "Remplacer le contenu ?",
+    "replaceMessage": "L'application de <strong>\"{{name}}\"</strong> remplacera tout le contenu existant. Cette action est irréversible.",
+    "replaceConfirm": "Remplacer",
+    "cancel": "Annuler",
+    "note": "Un modèle remplace tout le contenu existant. Tous les textes sont modifiables après application."
+  },
+  "export": {
+    "title": "Exporter l'affiche",
+    "format": "Format",
+    "dpi": "Résolution (DPI)",
+    "exportBtn": "Exporter",
+    "exporting": "Exportation..."
+  },
+  "status": {
+    "zoom": "Zoom",
+    "size": "Taille",
+    "distance": "Distance"
+  },
+  "common": {
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "delete": "Supprimer",
+    "close": "Fermer"
+  }
+}
