@@ -1,0 +1,253 @@
+{
+  "app": {
+    "title": "EHS Dizajner Postera",
+    "subtitle": "Dizajnirajte postere za sigurnost spremne za tisak s međunarodno priznatim piktogramima"
+  },
+  "features": {
+    "iso": "ISO 7010 piktogrami",
+    "dpi": "300 DPI spremno za tisak",
+    "export": "PDF / PNG / SVG izvoz"
+  },
+  "wizard": {
+    "steps": {
+      "language": "Jezik",
+      "purpose": "Namjena",
+      "size": "Veličina",
+      "theme": "Tema",
+      "viewing": "Pregledavanje"
+    },
+    "hints": {
+      "language": "Odaberite željeni jezik sučelja. Ovo utječe samo na korisničko sučelje — tekst postera može biti na bilo kojem jeziku.",
+      "purpose": "Odaberite vrstu sigurnosnog postera koji vam treba. Svaka namjena dolazi s odgovarajućom temom boja i signalnom riječju.",
+      "size": "Odaberite veličinu ispisa za vaš poster. A2 je najčešća veličina za sigurnosne oznake na radnim mjestima.",
+      "theme": "Odaberite shemu boja. Boje prate standard ISO 3864 koji se koristi u sigurnosnim oznakama diljem svijeta.",
+      "viewing": "Postavite udaljenost s koje će ljudi čitati ovaj poster. Ovo kontrolira preporuke za minimalnu veličinu fonta."
+    },
+    "language": {
+      "label": "Jezik sučelja",
+      "description": "Odaberite željeni jezik za sučelje aplikacije"
+    },
+    "purpose": {
+      "ppe": { "label": "Potrebna OZO", "desc": "Osobna zaštitna oprema" },
+      "danger": { "label": "Zona opasnosti", "desc": "Upozorenja za opasna područja" },
+      "emergency": { "label": "Hitni slučaj", "desc": "Postupci u hitnim slučajevima" },
+      "fire": { "label": "Zaštita od požara", "desc": "Protupožarna oprema i evakuacija" },
+      "chemical": { "label": "Kemijska opasnost", "desc": "Kemijska sigurnost i GHS" },
+      "general": { "label": "Opća sigurnost", "desc": "Opće sigurnosne obavijesti" }
+    },
+    "size": {
+      "paperSize": "Veličina papira",
+      "orientation": "Orijentacija",
+      "portrait": "Portret",
+      "landscape": "Pejzaž",
+      "scaleComparison": "Usporedba mjerila",
+      "sizeRef": {
+        "A0": "Veličina plakata",
+        "A1": "Flip chart",
+        "A2": "Standardni poster",
+        "A3": "Tabloid / knjiga",
+        "A4": "Uredski papir"
+      }
+    },
+    "theme": {
+      "label": "Tema boja",
+      "signalWord": "Signalna riječ",
+      "themes": {
+        "prohibition-red": "Zabrana crvena",
+        "warning-yellow": "Upozorenje žuta",
+        "mandatory-blue": "Obvezno plava",
+        "safe-green": "Sigurno zelena",
+        "neutral-industrial": "Neutralna industrijska",
+        "ehs-teal": "EHS tirkizna i limeta"
+      }
+    },
+    "viewing": {
+      "label": "Planirana udaljenost gledanja",
+      "summary": "Sažetak postera",
+      "summaryFields": {
+        "purpose": "Namjena",
+        "size": "Veličina",
+        "theme": "Tema",
+        "viewingDistance": "Udaljenost gledanja"
+      },
+      "distances": {
+        "1": "1m (čitanje izbliza)",
+        "2": "2m (obavijest u prostoriji)",
+        "5": "5m (hodnik)",
+        "10": "10m (skladište)",
+        "15": "15m (veliki objekt)",
+        "20": "20m (vanjski prostor)"
+      }
+    },
+    "nav": {
+      "back": "Natrag",
+      "next": "Dalje",
+      "selectPurpose": "Odaberite namjenu",
+      "createPoster": "Izradi poster"
+    }
+  },
+  "toolbar": {
+    "newPoster": "Novi poster",
+    "save": "Spremi",
+    "undo": "Poništi",
+    "redo": "Ponovi",
+    "zoomIn": "Uvećaj",
+    "zoomOut": "Umanji",
+    "zoomFit": "Prilagodi prikazu",
+    "select": "Odaberi",
+    "text": "Tekst",
+    "pan": "Pomakni",
+    "shape": "Oblik",
+    "grid": "Mreža",
+    "snap": "Poravnaj na mrežu",
+    "guides": "Pametne vodilice",
+    "readability": "Provjera čitljivosti",
+    "contrast": "Provjera kontrasta",
+    "export": "Izvoz",
+    "toggleLeftPanel": "Prikaži/sakrij lijevi panel",
+    "toggleRightPanel": "Prikaži/sakrij desni panel",
+    "addImage": "Dodaj sliku",
+    "undoShortcut": "Poništi (Ctrl+Z)",
+    "redoShortcut": "Ponovi (Ctrl+Shift+Z)",
+    "toggleGrid": "Prikaži/sakrij mrežu (G)",
+    "toggleSnap": "Uklj./isklj. poravnanje",
+    "posterSettings": "Postavke postera",
+    "currentPoster": "Trenutni poster",
+    "orientation": "Orijentacija",
+    "colorTheme": "Tema boja",
+    "signalWord": "Signalna riječ",
+    "active": "Aktivno",
+    "viewingDistance": "Udaljenost gledanja",
+    "done": "Gotovo",
+    "newPosterMenu": "Novi poster…",
+    "newPosterSubtitle": "Odbacite sve i počnite ispočetka",
+    "settingsMenu": "Postavke postera…",
+    "settingsSubtitle": "Tema, orijentacija, udaljenost gledanja",
+    "settingsInfo": "Ove promjene se primjenjuju uživo bez utjecaja na sadržaj platna. Za promjenu veličine papira koristite \"Novi poster\".",
+    "startOver": "Početi ispočetka?",
+    "startOverMessage": "Ovo će odbaciti vaš trenutni poster i vratiti se na čarobnjak za postavljanje. Sve nespremljene promjene bit će izgubljene.",
+    "discardStartOver": "Odbaci i počni ispočetka",
+    "portrait": "Portret",
+    "landscape": "Pejzaž",
+    "minReadable": "Min. čitljiv tekst:",
+    "largerThanTitle": "veće od standardne veličine naslova",
+    "headingSize": "veličina naslova ili veća",
+    "bodyReadable": "tekst tijela čitljiv"
+  },
+  "panels": {
+    "pictograms": "Piktogrami",
+    "templates": "Predlošci",
+    "borders": "Obrubi",
+    "elements": "Elementi",
+    "properties": "Svojstva"
+  },
+  "pictograms": {
+    "search": "Pretraži piktograme...",
+    "all": "Sve",
+    "clickToAdd": "Kliknite za dodavanje ili povucite na platno",
+    "noResults": "Piktogrami nisu pronađeni",
+    "noResultsFor": "Nema rezultata za \"{{query}}\"",
+    "clearFilters": "očisti filtere",
+    "categories": {
+      "prohibition": "Zabr.",
+      "warning": "Upoz.",
+      "mandatory": "Obvez.",
+      "safe-condition": "Sigur.",
+      "fire-equipment": "Požar"
+    }
+  },
+  "templates": {
+    "title": "Predlošci",
+    "apply": "Primijeni predložak",
+    "applying": "Primjenjujem...",
+    "applied": "Predložak \"{{name}}\" primijenjen",
+    "replaceTitle": "Zamijeniti sadržaj platna?",
+    "replaceMessage": "Primjenom <strong>\"{{name}}\"</strong> zamijenit će se sav postojeći sadržaj na platnu. Ovo se ne može poništiti.",
+    "replaceConfirm": "Zamijeni sadržaj",
+    "cancel": "Odustani",
+    "note": "Primjena predloška zamjenjuje sav trenutni sadržaj platna. Sav tekst je uređivati nakon primjene."
+  },
+  "export": {
+    "title": "Izvoz postera",
+    "format": "Format",
+    "dpi": "Rezolucija (DPI)",
+    "exportBtn": "Izvezi",
+    "exporting": "Izvozim..."
+  },
+  "status": {
+    "zoom": "Zum",
+    "size": "Veličina",
+    "distance": "Udaljenost",
+    "viewing": "Gledanje",
+    "unsavedChanges": "Nespremljene promjene",
+    "saved": "Spremljeno {{time}}",
+    "notSaved": "Nije spremljeno",
+    "notYetSaved": "Još nije spremljeno",
+    "lastAutoSaved": "Zadnje automatski spremljeno u {{time}}",
+    "gridOn": "Mreža UKLJ.",
+    "gridOff": "Mreža ISKLJ.",
+    "snapOn": "Poravnanje UKLJ.",
+    "snapOff": "Poravnanje ISKLJ.",
+    "clickZoomFit": "Kliknite za prilagodbu prikazu",
+    "toggleGrid": "Prikaži/sakrij mrežu (G)",
+    "toggleSnap": "Uklj./isklj. poravnanje na mrežu",
+    "justNow": "upravo sada",
+    "secondsAgo": "prije {{seconds}}s",
+    "minutesAgo": "prije {{minutes}}m",
+    "hoursAgo": "prije {{hours}}h",
+    "portrait": "Portret",
+    "landscape": "Pejzaž"
+  },
+  "leftPanel": {
+    "signs": "Znakovi",
+    "layout": "Raspored",
+    "border": "Obrub",
+    "shapes": "Oblici",
+    "brand": "Marka",
+    "brandKit": "Komplet marke",
+    "closePanel": "Zatvori panel",
+    "rectangle": "Pravokutnik",
+    "circle": "Krug",
+    "line": "Linija",
+    "arrow": "Strelica"
+  },
+  "rightPanel": {
+    "closePanel": "Zatvori panel",
+    "poster": "Poster",
+    "size": "Veličina",
+    "orientation": "Orijentacija",
+    "theme": "Tema",
+    "border": "Obrub",
+    "readability": "Čitljivost",
+    "viewingDistance": "Udaljenost gledanja",
+    "minFontSize": "Min. veličina fonta",
+    "contrast": "Kontrast",
+    "selection": "Odabir",
+    "objectsSelected": "{{count}} objekt(i) odabrano",
+    "elementColors": "Boje elemenata",
+    "autoLayout": "Automatski raspored",
+    "themeColors": "Boje teme",
+    "primary": "Primarna",
+    "secondary": "Sekundarna",
+    "accent": "Naglasak",
+    "background": "Pozadina",
+    "colorApplied": "{{label}} boja primijenjena",
+    "copied": "Kopirano {{color}}",
+    "clickToApply": "Kliknite za primjenu",
+    "title72": "Naslov (72pt)",
+    "heading36": "Podnaslov (36pt)",
+    "body18": "Tijelo (18pt)",
+    "caption12": "Natpis (12pt)",
+    "ok": "U redu",
+    "marginal": "Granično",
+    "tooSmall": "Premalo",
+    "minimum": "Minimum",
+    "readabilityTip": "Na {{distance}}m, minimalna čitljiva veličina je <strong>{{size}} pt</strong>. Koristite veliki prikazni tekst ili smanjite udaljenost gledanja u Postavkama."
+  },
+  "common": {
+    "cancel": "Odustani",
+    "confirm": "Potvrdi",
+    "delete": "Obriši",
+    "close": "Zatvori"
+  }
+}

@@ -11,6 +11,11 @@ import it from './locales/it.json';
 import nl from './locales/nl.json';
 import pl from './locales/pl.json';
 import pt from './locales/pt.json';
+import hr from './locales/hr.json';
+import hu from './locales/hu.json';
+import ro from './locales/ro.json';
+import kk from './locales/kk.json';
+import el from './locales/el.json';
 
 export const SUPPORTED_LANGUAGES = [
   { code: 'en', label: 'English', flag: '🇬🇧' },
@@ -22,6 +27,11 @@ export const SUPPORTED_LANGUAGES = [
   { code: 'nl', label: 'Nederlands', flag: '🇳🇱' },
   { code: 'pl', label: 'Polski', flag: '🇵🇱' },
   { code: 'pt', label: 'Português', flag: '🇵🇹' },
+  { code: 'hr', label: 'Hrvatski', flag: '🇭🇷' },
+  { code: 'hu', label: 'Magyar', flag: '🇭🇺' },
+  { code: 'ro', label: 'Română', flag: '🇷🇴' },
+  { code: 'kk', label: 'Қазақша', flag: '🇰🇿' },
+  { code: 'el', label: 'Ελληνικά', flag: '🇬🇷' },
 ] as const;
 
 i18n
@@ -38,6 +48,11 @@ i18n
       nl: { translation: nl },
       pl: { translation: pl },
       pt: { translation: pt },
+      hr: { translation: hr },
+      hu: { translation: hu },
+      ro: { translation: ro },
+      kk: { translation: kk },
+      el: { translation: el },
     },
     fallbackLng: 'en',
     interpolation: {
