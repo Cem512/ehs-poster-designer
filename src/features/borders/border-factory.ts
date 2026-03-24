@@ -32,86 +32,40 @@ function renderHazardStripe(
   const thickPx = mmToPx(thickness);
   const stripeWidth = mmToPx(thickness * 1.5);
 
-  // Outer background rect
-  const outerRect = new fabric.Rect({
+  // Full poster background in primary color
+  const bgRect = new fabric.Rect({
     left: 0, top: 0, width: w, height: h,
-    fill: secondaryColor,
+    fill: primaryColor,
     strokeWidth: 0,
   });
-  markAsBorder(outerRect);
-  canvas.add(outerRect);
+  markAsBorder(bgRect);
+  canvas.add(bgRect);
 
-  // Create diagonal stripe pattern using a group of lines
-  // We'll draw diagonal lines across the border area
-  const lines: fabric.FabricObject[] = [];
-  const totalDiag = w + h;
-  for (let i = -h; i < totalDiag; i += stripeWidth * 2) {
-    const line = new fabric.Line([i, 0, i + h, h], {
-      stroke: primaryColor,
-      strokeWidth: stripeWidth,
-      selectable: false,
-      evented: false,
+  // Diagonal stripes across the poster width only (lines are 45° so offset by h)
+  // Limit range to only lines that actually intersect the poster rect
+  const step = stripeWidth * 2;
+  for (let pos = -h; pos < w; pos += step) {
+    const stripeLine = new fabric.Line(
+      [pos, 0, pos + h, h],
+      {
+        stroke: secondaryColor,
+        strokeWidth: stripeWidth * 0.5,
+      }
+    );
+    // Clip to poster bounds so lines don't overflow the edges
+    const clip = new fabric.Rect({
+      left: 0,
+      top: 0,
+      width: w,
+      height: h,
     });
-    lines.push(line);
+    clip.absolutePositioned = true;
+    stripeLine.clipPath = clip;
+    markAsBorder(stripeLine);
+    canvas.add(stripeLine);
   }
 
-  // Use clipPath to make stripes only appear in border area
-  // Create the border frame as 4 rectangles
-  const borderRects = [
-    // Top
-    new fabric.Rect({ left: 0, top: 0, width: w, height: thickPx, fill: 'transparent' }),
-    // Bottom
-    new fabric.Rect({ left: 0, top: h - thickPx, width: w, height: thickPx, fill: 'transparent' }),
-    // Left
-    new fabric.Rect({ left: 0, top: 0, width: thickPx, height: h, fill: 'transparent' }),
-    // Right
-    new fabric.Rect({ left: w - thickPx, top: 0, width: thickPx, height: h, fill: 'transparent' }),
-  ];
-
-  // Simpler approach: draw 4 stripe-filled border rectangles
-  for (const stripeRect of borderRects) {
-    markAsBorder(stripeRect);
-  }
-
-  // Actually, let's use a simpler visual: solid colored border rectangles with diagonal line overlay
-  // Top border with stripes
-  const regions = [
-    { x: 0, y: 0, rw: w, rh: thickPx },           // top
-    { x: 0, y: h - thickPx, rw: w, rh: thickPx },  // bottom
-    { x: 0, y: thickPx, rw: thickPx, rh: h - 2 * thickPx }, // left
-    { x: w - thickPx, y: thickPx, rw: thickPx, rh: h - 2 * thickPx }, // right
-  ];
-
-  // Remove the outer rect we added, use region rects instead
-  canvas.remove(outerRect);
-
-  for (const region of regions) {
-    // Background
-    const bg = new fabric.Rect({
-      left: region.x, top: region.y,
-      width: region.rw, height: region.rh,
-      fill: primaryColor,
-      strokeWidth: 0,
-    });
-    markAsBorder(bg);
-    canvas.add(bg);
-
-    // Diagonal stripes overlay
-    const step = stripeWidth * 2;
-    for (let pos = -region.rh; pos < region.rw + region.rh; pos += step) {
-      const stripeLine = new fabric.Line(
-        [region.x + pos, region.y, region.x + pos + region.rh, region.y + region.rh],
-        {
-          stroke: secondaryColor,
-          strokeWidth: stripeWidth * 0.5,
-        }
-      );
-      markAsBorder(stripeLine);
-      canvas.add(stripeLine);
-    }
-  }
-
-  // Inner white area
+  // Inner white area covers the center, leaving only the border frame with stripes
   const innerRect = new fabric.Rect({
     left: thickPx, top: thickPx,
     width: w - 2 * thickPx, height: h - 2 * thickPx,
@@ -319,11 +273,13 @@ export function renderBorder(canvas: fabric.Canvas, posterDoc: PosterDocument) {
       break;
   }
 
-  // Send border objects to back
+  // Send border objects to back (reverse iterate to preserve their relative order)
   const borderObjects = canvas.getObjects().filter(
     (obj: any) => obj._customId === BORDER_GROUP_ID
   );
-  borderObjects.forEach((obj) => canvas.sendObjectToBack(obj));
+  for (let i = borderObjects.length - 1; i >= 0; i--) {
+    canvas.sendObjectToBack(borderObjects[i]);
+  }
 
   canvas.requestRenderAll();
 }

@@ -1,5 +1,8 @@
 import * as fabric from 'fabric';
 import { getFabricCanvas } from '../../canvas/FabricCanvas';
+import { usePosterStore } from '../../store/poster-store';
+import { getPosterDimensionsPx, mmToPx } from '../../constants/paper-sizes';
+import { getBorderInset } from '../borders/border-factory';
 
 export type LayoutPreset = 'center-stack' | 'two-column' | 'grid-2x2' | 'thirds';
 
@@ -23,6 +26,42 @@ function getUserObjects(canvas: fabric.Canvas): fabric.FabricObject[] {
   );
 }
 
+/** Get the content zone rect (area between header and footer, inside border) */
+function getContentZone() {
+  const posterDoc = usePosterStore.getState().document;
+  const dims = getPosterDimensionsPx(posterDoc.size, posterDoc.orientation);
+  const borderInset = getBorderInset(posterDoc.border.type, posterDoc.border.thickness);
+  const padding = mmToPx(3);
+  const innerLeft = borderInset + padding;
+  const innerTop = borderInset + padding;
+  const innerWidth = dims.width - 2 * (borderInset + padding);
+  const innerHeight = dims.height - 2 * (borderInset + padding);
+
+  const headerH = posterDoc.header.visible ? innerHeight * (posterDoc.header.heightPercent / 100) : 0;
+  const footerH = posterDoc.footer.visible ? innerHeight * (posterDoc.footer.heightPercent / 100) : 0;
+  const gap = mmToPx(2);
+
+  return {
+    x: innerLeft,
+    y: innerTop + headerH + gap,
+    w: innerWidth,
+    h: innerHeight - headerH - footerH - gap * 2,
+  };
+}
+
+/**
+ * Position an object so its center lands at (cx, cy)
+ * without changing originX/originY (keeps default 'left'/'top').
+ */
+function centerAt(obj: fabric.FabricObject, cx: number, cy: number) {
+  const bound = obj.getBoundingRect();
+  obj.set({
+    left: cx - bound.width / 2,
+    top: cy - bound.height / 2,
+  });
+  obj.setCoords();
+}
+
 /** Apply a layout preset to all user objects on the canvas */
 export function applyLayout(preset: LayoutPreset): void {
   const canvas = getFabricCanvas();
@@ -31,24 +70,20 @@ export function applyLayout(preset: LayoutPreset): void {
   const objects = getUserObjects(canvas);
   if (objects.length === 0) return;
 
-  const canvasW = canvas.width!;
-  const canvasH = canvas.height!;
-  const margin = canvasW * 0.08;
-  const usableW = canvasW - 2 * margin;
-  const usableH = canvasH - 2 * margin;
+  const zone = getContentZone();
 
   switch (preset) {
     case 'center-stack':
-      applyCenterStack(objects, canvasW, margin, usableH);
+      applyCenterStack(objects, zone);
       break;
     case 'two-column':
-      applyTwoColumn(objects, margin, usableW, usableH);
+      applyTwoColumn(objects, zone);
       break;
     case 'grid-2x2':
-      applyGrid2x2(objects, margin, usableW, usableH);
+      applyGrid2x2(objects, zone);
       break;
     case 'thirds':
-      applyThirds(objects, canvasW, canvasH);
+      applyThirds(objects, zone);
       break;
   }
 
@@ -56,102 +91,60 @@ export function applyLayout(preset: LayoutPreset): void {
   canvas.requestRenderAll();
 }
 
-function applyCenterStack(
-  objects: fabric.FabricObject[],
-  canvasW: number,
-  marginTop: number,
-  usableH: number,
-) {
-  const totalObjects = objects.length;
-  const spacing = usableH / (totalObjects + 1);
+interface Zone { x: number; y: number; w: number; h: number }
+
+function applyCenterStack(objects: fabric.FabricObject[], zone: Zone) {
+  const n = objects.length;
+  const spacing = zone.h / (n + 1);
+  const centerX = zone.x + zone.w / 2;
 
   objects.forEach((obj, i) => {
-    obj.set({
-      left: canvasW / 2,
-      top: marginTop + spacing * (i + 1),
-      originX: 'center',
-      originY: 'center',
-    });
-    obj.setCoords();
+    centerAt(obj, centerX, zone.y + spacing * (i + 1));
   });
 }
 
-function applyTwoColumn(
-  objects: fabric.FabricObject[],
-  margin: number,
-  usableW: number,
-  usableH: number,
-) {
-  const colW = usableW / 2;
-  const leftCol = margin + colW * 0.5;
-  const rightCol = margin + colW * 1.5;
+function applyTwoColumn(objects: fabric.FabricObject[], zone: Zone) {
+  const leftCol = zone.x + zone.w * 0.25;
+  const rightCol = zone.x + zone.w * 0.75;
 
   const leftObjects = objects.filter((_, i) => i % 2 === 0);
   const rightObjects = objects.filter((_, i) => i % 2 === 1);
 
-  const distributeInColumn = (objs: fabric.FabricObject[], centerX: number) => {
-    const spacing = usableH / (objs.length + 1);
+  const distribute = (objs: fabric.FabricObject[], cx: number) => {
+    const spacing = zone.h / (objs.length + 1);
     objs.forEach((obj, i) => {
-      obj.set({
-        left: centerX,
-        top: margin + spacing * (i + 1),
-        originX: 'center',
-        originY: 'center',
-      });
-      obj.setCoords();
+      centerAt(obj, cx, zone.y + spacing * (i + 1));
     });
   };
 
-  distributeInColumn(leftObjects, leftCol);
-  distributeInColumn(rightObjects, rightCol);
+  distribute(leftObjects, leftCol);
+  distribute(rightObjects, rightCol);
 }
 
-function applyGrid2x2(
-  objects: fabric.FabricObject[],
-  margin: number,
-  usableW: number,
-  usableH: number,
-) {
+function applyGrid2x2(objects: fabric.FabricObject[], zone: Zone) {
   const positions = [
-    { x: margin + usableW * 0.25, y: margin + usableH * 0.25 },
-    { x: margin + usableW * 0.75, y: margin + usableH * 0.25 },
-    { x: margin + usableW * 0.25, y: margin + usableH * 0.75 },
-    { x: margin + usableW * 0.75, y: margin + usableH * 0.75 },
+    { x: zone.x + zone.w * 0.25, y: zone.y + zone.h * 0.25 },
+    { x: zone.x + zone.w * 0.75, y: zone.y + zone.h * 0.25 },
+    { x: zone.x + zone.w * 0.25, y: zone.y + zone.h * 0.75 },
+    { x: zone.x + zone.w * 0.75, y: zone.y + zone.h * 0.75 },
   ];
 
   objects.forEach((obj, i) => {
     const pos = positions[i % positions.length];
-    obj.set({
-      left: pos.x,
-      top: pos.y,
-      originX: 'center',
-      originY: 'center',
-    });
-    obj.setCoords();
+    centerAt(obj, pos.x, pos.y);
   });
 }
 
-function applyThirds(
-  objects: fabric.FabricObject[],
-  canvasW: number,
-  canvasH: number,
-) {
-  // Rule of thirds: place objects at the 4 intersections
+function applyThirds(objects: fabric.FabricObject[], zone: Zone) {
   const positions = [
-    { x: canvasW / 3, y: canvasH / 3 },
-    { x: (canvasW * 2) / 3, y: canvasH / 3 },
-    { x: canvasW / 3, y: (canvasH * 2) / 3 },
-    { x: (canvasW * 2) / 3, y: (canvasH * 2) / 3 },
+    { x: zone.x + zone.w / 3, y: zone.y + zone.h / 3 },
+    { x: zone.x + (zone.w * 2) / 3, y: zone.y + zone.h / 3 },
+    { x: zone.x + zone.w / 3, y: zone.y + (zone.h * 2) / 3 },
+    { x: zone.x + (zone.w * 2) / 3, y: zone.y + (zone.h * 2) / 3 },
   ];
 
   objects.forEach((obj, i) => {
     const pos = positions[i % positions.length];
-    obj.set({
-      left: pos.x,
-      top: pos.y,
-      originX: 'center',
-      originY: 'center',
-    });
-    obj.setCoords();
+    centerAt(obj, pos.x, pos.y);
   });
 }
