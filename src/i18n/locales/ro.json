@@ -1,0 +1,253 @@
+{
+  "app": {
+    "title": "EHS Designer de Postere",
+    "subtitle": "Proiectați postere de siguranță gata de tipărit cu pictograme recunoscute internațional"
+  },
+  "features": {
+    "iso": "Pictograme ISO 7010",
+    "dpi": "300 DPI gata de tipărit",
+    "export": "Export PDF / PNG / SVG"
+  },
+  "wizard": {
+    "steps": {
+      "language": "Limbă",
+      "purpose": "Scop",
+      "size": "Dimensiune",
+      "theme": "Temă",
+      "viewing": "Vizualizare"
+    },
+    "hints": {
+      "language": "Selectați limba preferată a interfeței. Aceasta afectează doar interfața aplicației — textul posterului poate fi în orice limbă.",
+      "purpose": "Alegeți tipul de poster de siguranță de care aveți nevoie. Fiecare scop vine cu o temă de culori și un cuvânt-semnal corespunzător.",
+      "size": "Selectați dimensiunea de tipărire pentru posterul dvs. A2 este cea mai comună dimensiune pentru semnalizarea de siguranță la locul de muncă.",
+      "theme": "Alegeți o schemă de culori. Culorile respectă standardul ISO 3864 utilizat în semnalizarea de siguranță la nivel mondial.",
+      "viewing": "Setați distanța de la care oamenii vor citi acest poster. Aceasta controlează recomandările privind dimensiunea minimă a fontului."
+    },
+    "language": {
+      "label": "Limba interfeței",
+      "description": "Alegeți limba preferată pentru interfața aplicației"
+    },
+    "purpose": {
+      "ppe": { "label": "PPE necesar", "desc": "Echipament individual de protecție" },
+      "danger": { "label": "Zonă de pericol", "desc": "Avertismente pentru zone periculoase" },
+      "emergency": { "label": "Urgență", "desc": "Proceduri de urgență" },
+      "fire": { "label": "Securitate la incendiu", "desc": "Echipament de stingere și evacuare" },
+      "chemical": { "label": "Pericol chimic", "desc": "Siguranță chimică și GHS" },
+      "general": { "label": "Siguranță generală", "desc": "Avize generale de siguranță" }
+    },
+    "size": {
+      "paperSize": "Dimensiune hârtie",
+      "orientation": "Orientare",
+      "portrait": "Portret",
+      "landscape": "Peisaj",
+      "scaleComparison": "Comparație la scară",
+      "sizeRef": {
+        "A0": "Dimensiune panou publicitar",
+        "A1": "Flipchart",
+        "A2": "Poster standard",
+        "A3": "Tabloid / registru",
+        "A4": "Hârtie de birou"
+      }
+    },
+    "theme": {
+      "label": "Temă de culori",
+      "signalWord": "Cuvânt-semnal",
+      "themes": {
+        "prohibition-red": "Roșu de interdicție",
+        "warning-yellow": "Galben de avertizare",
+        "mandatory-blue": "Albastru obligatoriu",
+        "safe-green": "Verde de siguranță",
+        "neutral-industrial": "Industrial neutru",
+        "ehs-teal": "EHS turcoaz și lime"
+      }
+    },
+    "viewing": {
+      "label": "Distanța de vizualizare prevăzută",
+      "summary": "Rezumatul posterului",
+      "summaryFields": {
+        "purpose": "Scop",
+        "size": "Dimensiune",
+        "theme": "Temă",
+        "viewingDistance": "Distanță de vizualizare"
+      },
+      "distances": {
+        "1": "1m (citire de aproape)",
+        "2": "2m (aviz de cameră)",
+        "5": "5m (coridor)",
+        "10": "10m (depozit)",
+        "15": "15m (facilitate mare)",
+        "20": "20m (exterior)"
+      }
+    },
+    "nav": {
+      "back": "Înapoi",
+      "next": "Următorul",
+      "selectPurpose": "Selectați un scop",
+      "createPoster": "Creează poster"
+    }
+  },
+  "toolbar": {
+    "newPoster": "Poster nou",
+    "save": "Salvare",
+    "undo": "Anulare",
+    "redo": "Refacere",
+    "zoomIn": "Mărire",
+    "zoomOut": "Micșorare",
+    "zoomFit": "Potrivire la vizualizare",
+    "select": "Selectare",
+    "text": "Text",
+    "pan": "Panoramare",
+    "shape": "Formă",
+    "grid": "Grilă",
+    "snap": "Aliniere la grilă",
+    "guides": "Ghidaje inteligente",
+    "readability": "Verificare lizibilitate",
+    "contrast": "Verificare contrast",
+    "export": "Export",
+    "toggleLeftPanel": "Comutare panou stânga",
+    "toggleRightPanel": "Comutare panou dreapta",
+    "addImage": "Adaugă imagine",
+    "undoShortcut": "Anulare (Ctrl+Z)",
+    "redoShortcut": "Refacere (Ctrl+Shift+Z)",
+    "toggleGrid": "Comutare grilă (G)",
+    "toggleSnap": "Comutare aliniere",
+    "posterSettings": "Setări poster",
+    "currentPoster": "Posterul curent",
+    "orientation": "Orientare",
+    "colorTheme": "Temă de culori",
+    "signalWord": "Cuvânt-semnal",
+    "active": "Activ",
+    "viewingDistance": "Distanță de vizualizare",
+    "done": "Gata",
+    "newPosterMenu": "Poster nou…",
+    "newPosterSubtitle": "Renunțați la tot și începeți de la zero",
+    "settingsMenu": "Setări poster…",
+    "settingsSubtitle": "Temă, orientare, distanță de vizualizare",
+    "settingsInfo": "Aceste modificări se aplică în timp real fără a afecta conținutul pânzei. Pentru a schimba dimensiunea hârtiei, folosiți \"Poster nou\".",
+    "startOver": "Începeți de la zero?",
+    "startOverMessage": "Aceasta va renunța la posterul curent și va reveni la asistentul de configurare. Toate modificările nesalvate vor fi pierdute.",
+    "discardStartOver": "Renunță și începe de la zero",
+    "portrait": "Portret",
+    "landscape": "Peisaj",
+    "minReadable": "Text min. lizibil:",
+    "largerThanTitle": "mai mare decât dimensiunea standard a titlului",
+    "headingSize": "dimensiune titlu sau mai mare",
+    "bodyReadable": "text corp lizibil"
+  },
+  "panels": {
+    "pictograms": "Pictograme",
+    "templates": "Șabloane",
+    "borders": "Borduri",
+    "elements": "Elemente",
+    "properties": "Proprietăți"
+  },
+  "pictograms": {
+    "search": "Căutare pictograme...",
+    "all": "Toate",
+    "clickToAdd": "Click pentru a adăuga sau trageți pe pânză",
+    "noResults": "Nu s-au găsit pictograme",
+    "noResultsFor": "Niciun rezultat pentru \"{{query}}\"",
+    "clearFilters": "șterge filtrele",
+    "categories": {
+      "prohibition": "Inter.",
+      "warning": "Avert.",
+      "mandatory": "Oblig.",
+      "safe-condition": "Sigur.",
+      "fire-equipment": "Foc"
+    }
+  },
+  "templates": {
+    "title": "Șabloane",
+    "apply": "Aplică șablon",
+    "applying": "Se aplică...",
+    "applied": "Șablonul \"{{name}}\" aplicat",
+    "replaceTitle": "Înlocuiți conținutul pânzei?",
+    "replaceMessage": "Aplicarea <strong>\"{{name}}\"</strong> va înlocui tot conținutul existent de pe pânză. Această acțiune nu poate fi anulată.",
+    "replaceConfirm": "Înlocuiește conținutul",
+    "cancel": "Anulare",
+    "note": "Aplicarea unui șablon înlocuiește tot conținutul curent al pânzei. Tot textul este editabil după aplicare."
+  },
+  "export": {
+    "title": "Export poster",
+    "format": "Format",
+    "dpi": "Rezoluție (DPI)",
+    "exportBtn": "Exportă",
+    "exporting": "Se exportă..."
+  },
+  "status": {
+    "zoom": "Zoom",
+    "size": "Dimensiune",
+    "distance": "Distanță",
+    "viewing": "Vizualizare",
+    "unsavedChanges": "Modificări nesalvate",
+    "saved": "Salvat {{time}}",
+    "notSaved": "Nesalvat",
+    "notYetSaved": "Încă nesalvat",
+    "lastAutoSaved": "Ultima salvare automată la {{time}}",
+    "gridOn": "Grilă PORNITĂ",
+    "gridOff": "Grilă OPRITĂ",
+    "snapOn": "Aliniere PORNITĂ",
+    "snapOff": "Aliniere OPRITĂ",
+    "clickZoomFit": "Click pentru potrivire la vizualizare",
+    "toggleGrid": "Comutare grilă (G)",
+    "toggleSnap": "Comutare aliniere la grilă",
+    "justNow": "chiar acum",
+    "secondsAgo": "acum {{seconds}}s",
+    "minutesAgo": "acum {{minutes}}m",
+    "hoursAgo": "acum {{hours}}h",
+    "portrait": "Portret",
+    "landscape": "Peisaj"
+  },
+  "leftPanel": {
+    "signs": "Semne",
+    "layout": "Aspect",
+    "border": "Bordură",
+    "shapes": "Forme",
+    "brand": "Brand",
+    "brandKit": "Kit de brand",
+    "closePanel": "Închide panoul",
+    "rectangle": "Dreptunghi",
+    "circle": "Cerc",
+    "line": "Linie",
+    "arrow": "Săgeată"
+  },
+  "rightPanel": {
+    "closePanel": "Închide panoul",
+    "poster": "Poster",
+    "size": "Dimensiune",
+    "orientation": "Orientare",
+    "theme": "Temă",
+    "border": "Bordură",
+    "readability": "Lizibilitate",
+    "viewingDistance": "Distanță de vizualizare",
+    "minFontSize": "Dimensiune min. font",
+    "contrast": "Contrast",
+    "selection": "Selecție",
+    "objectsSelected": "{{count}} obiect(e) selectat(e)",
+    "elementColors": "Culori elemente",
+    "autoLayout": "Aspect automat",
+    "themeColors": "Culori temă",
+    "primary": "Primar",
+    "secondary": "Secundar",
+    "accent": "Accent",
+    "background": "Fundal",
+    "colorApplied": "Culoare {{label}} aplicată",
+    "copied": "{{color}} copiat",
+    "clickToApply": "Click pentru a aplica",
+    "title72": "Titlu (72pt)",
+    "heading36": "Subtitlu (36pt)",
+    "body18": "Corp (18pt)",
+    "caption12": "Legendă (12pt)",
+    "ok": "OK",
+    "marginal": "Marginal",
+    "tooSmall": "Prea mic",
+    "minimum": "Minim",
+    "readabilityTip": "La {{distance}}m, dimensiunea minimă lizibilă este <strong>{{size}} pt</strong>. Folosiți text de afișare mare sau reduceți distanța de vizualizare în Setări."
+  },
+  "common": {
+    "cancel": "Anulare",
+    "confirm": "Confirmă",
+    "delete": "Șterge",
+    "close": "Închide"
+  }
+}

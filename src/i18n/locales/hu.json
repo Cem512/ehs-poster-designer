@@ -1,0 +1,253 @@
+{
+  "app": {
+    "title": "EHS Plakattervező",
+    "subtitle": "Tervezzen nyomtatásra kész biztonsági plakátokat nemzetközileg elismert piktogramokkal"
+  },
+  "features": {
+    "iso": "ISO 7010 piktogramok",
+    "dpi": "300 DPI nyomtatásra kész",
+    "export": "PDF / PNG / SVG exportálás"
+  },
+  "wizard": {
+    "steps": {
+      "language": "Nyelv",
+      "purpose": "Cél",
+      "size": "Méret",
+      "theme": "Téma",
+      "viewing": "Megtekintés"
+    },
+    "hints": {
+      "language": "Válassza ki a kívánt felületi nyelvet. Ez csak az alkalmazás felületére vonatkozik — a plakát szövege bármilyen nyelven lehet.",
+      "purpose": "Válassza ki a szükséges biztonsági plakát típusát. Minden célhoz tartozik egy megfelelő színtéma és jelzőszó.",
+      "size": "Válassza ki a plakát nyomtatási méretét. Az A2 a leggyakoribb méret a munkahelyi biztonsági jelzésekhez.",
+      "theme": "Válasszon színsémát. A színek az ISO 3864 szabványt követik, amelyet világszerte használnak a biztonsági jelzésekben.",
+      "viewing": "Állítsa be a távolságot, ahonnan az emberek olvasni fogják ezt a plakátot. Ez szabályozza a minimális betűméret-javaslatokat."
+    },
+    "language": {
+      "label": "Felület nyelve",
+      "description": "Válassza ki a kívánt nyelvet az alkalmazás felületéhez"
+    },
+    "purpose": {
+      "ppe": { "label": "PPE szükséges", "desc": "Egyéni védőeszközök" },
+      "danger": { "label": "Veszélyzóna", "desc": "Veszélyes területi figyelmeztetések" },
+      "emergency": { "label": "Vészhelyzet", "desc": "Vészhelyzeti eljárások" },
+      "fire": { "label": "Tűzbiztonság", "desc": "Tűzoltó felszerelés és evakuálás" },
+      "chemical": { "label": "Vegyi veszély", "desc": "Vegyi biztonság és GHS" },
+      "general": { "label": "Általános biztonság", "desc": "Általános biztonsági közlemények" }
+    },
+    "size": {
+      "paperSize": "Papírméret",
+      "orientation": "Tájolás",
+      "portrait": "Álló",
+      "landscape": "Fekvő",
+      "scaleComparison": "Méretarány-összehasonlítás",
+      "sizeRef": {
+        "A0": "Óriásplakát méretű",
+        "A1": "Flipchart",
+        "A2": "Szabványos plakát",
+        "A3": "Tabloid / főkönyv",
+        "A4": "Irodai papír"
+      }
+    },
+    "theme": {
+      "label": "Színtéma",
+      "signalWord": "Jelzőszó",
+      "themes": {
+        "prohibition-red": "Tiltó piros",
+        "warning-yellow": "Figyelmeztető sárga",
+        "mandatory-blue": "Kötelező kék",
+        "safe-green": "Biztonságos zöld",
+        "neutral-industrial": "Semleges ipari",
+        "ehs-teal": "EHS kékeszöld és lime"
+      }
+    },
+    "viewing": {
+      "label": "Tervezett megtekintési távolság",
+      "summary": "Plakát összefoglaló",
+      "summaryFields": {
+        "purpose": "Cél",
+        "size": "Méret",
+        "theme": "Téma",
+        "viewingDistance": "Megtekintési távolság"
+      },
+      "distances": {
+        "1": "1m (közeli olvasás)",
+        "2": "2m (szobai közlemény)",
+        "5": "5m (folyosó)",
+        "10": "10m (raktár)",
+        "15": "15m (nagy létesítmény)",
+        "20": "20m (szabadtéri)"
+      }
+    },
+    "nav": {
+      "back": "Vissza",
+      "next": "Tovább",
+      "selectPurpose": "Válasszon célt",
+      "createPoster": "Plakát létrehozása"
+    }
+  },
+  "toolbar": {
+    "newPoster": "Új plakát",
+    "save": "Mentés",
+    "undo": "Visszavonás",
+    "redo": "Újra",
+    "zoomIn": "Nagyítás",
+    "zoomOut": "Kicsinyítés",
+    "zoomFit": "Nézethez igazítás",
+    "select": "Kijelölés",
+    "text": "Szöveg",
+    "pan": "Pásztázás",
+    "shape": "Alakzat",
+    "grid": "Rács",
+    "snap": "Rácshoz igazítás",
+    "guides": "Intelligens segédvonalak",
+    "readability": "Olvashatóság ellenőrzése",
+    "contrast": "Kontraszt ellenőrzése",
+    "export": "Exportálás",
+    "toggleLeftPanel": "Bal panel ki/be",
+    "toggleRightPanel": "Jobb panel ki/be",
+    "addImage": "Kép hozzáadása",
+    "undoShortcut": "Visszavonás (Ctrl+Z)",
+    "redoShortcut": "Újra (Ctrl+Shift+Z)",
+    "toggleGrid": "Rács ki/be (G)",
+    "toggleSnap": "Igazítás ki/be",
+    "posterSettings": "Plakát beállításai",
+    "currentPoster": "Jelenlegi plakát",
+    "orientation": "Tájolás",
+    "colorTheme": "Színtéma",
+    "signalWord": "Jelzőszó",
+    "active": "Aktív",
+    "viewingDistance": "Megtekintési távolság",
+    "done": "Kész",
+    "newPosterMenu": "Új plakát…",
+    "newPosterSubtitle": "Minden elvetése és újrakezdés",
+    "settingsMenu": "Plakát beállításai…",
+    "settingsSubtitle": "Téma, tájolás, megtekintési távolság",
+    "settingsInfo": "Ezek a változtatások élőben érvényesülnek a vászon tartalmának érintése nélkül. A papírméret módosításához használja az \"Új plakát\" lehetőséget.",
+    "startOver": "Újrakezdés?",
+    "startOverMessage": "Ez elveti a jelenlegi plakátot és visszatér a beállítási varázslóhoz. Minden nem mentett módosítás elvész.",
+    "discardStartOver": "Elvetés és újrakezdés",
+    "portrait": "Álló",
+    "landscape": "Fekvő",
+    "minReadable": "Min. olvasható szöveg:",
+    "largerThanTitle": "nagyobb a szabványos címméretnél",
+    "headingSize": "címsor méret vagy nagyobb",
+    "bodyReadable": "törzsszöveg olvasható"
+  },
+  "panels": {
+    "pictograms": "Piktogramok",
+    "templates": "Sablonok",
+    "borders": "Keretek",
+    "elements": "Elemek",
+    "properties": "Tulajdonságok"
+  },
+  "pictograms": {
+    "search": "Piktogramok keresése...",
+    "all": "Mind",
+    "clickToAdd": "Kattintson a hozzáadáshoz vagy húzza a vászonra",
+    "noResults": "Nem található piktogram",
+    "noResultsFor": "Nincs találat erre: \"{{query}}\"",
+    "clearFilters": "szűrők törlése",
+    "categories": {
+      "prohibition": "Tiltó",
+      "warning": "Figy.",
+      "mandatory": "Köt.",
+      "safe-condition": "Bizt.",
+      "fire-equipment": "Tűz"
+    }
+  },
+  "templates": {
+    "title": "Sablonok",
+    "apply": "Sablon alkalmazása",
+    "applying": "Alkalmazás...",
+    "applied": "\"{{name}}\" sablon alkalmazva",
+    "replaceTitle": "Vászon tartalmának cseréje?",
+    "replaceMessage": "A(z) <strong>\"{{name}}\"</strong> alkalmazása lecseréli a vászon összes meglévő tartalmát. Ez nem vonható vissza.",
+    "replaceConfirm": "Tartalom cseréje",
+    "cancel": "Mégse",
+    "note": "A sablon alkalmazása lecseréli a vászon teljes tartalmát. Az alkalmazás után minden szöveg szerkeszthető."
+  },
+  "export": {
+    "title": "Plakát exportálása",
+    "format": "Formátum",
+    "dpi": "Felbontás (DPI)",
+    "exportBtn": "Exportálás",
+    "exporting": "Exportálás..."
+  },
+  "status": {
+    "zoom": "Nagyítás",
+    "size": "Méret",
+    "distance": "Távolság",
+    "viewing": "Megtekintés",
+    "unsavedChanges": "Nem mentett módosítások",
+    "saved": "Mentve {{time}}",
+    "notSaved": "Nincs mentve",
+    "notYetSaved": "Még nincs mentve",
+    "lastAutoSaved": "Utoljára automatikusan mentve: {{time}}",
+    "gridOn": "Rács BE",
+    "gridOff": "Rács KI",
+    "snapOn": "Igazítás BE",
+    "snapOff": "Igazítás KI",
+    "clickZoomFit": "Kattintson a nézethez igazításhoz",
+    "toggleGrid": "Rács ki/be (G)",
+    "toggleSnap": "Rácshoz igazítás ki/be",
+    "justNow": "éppen most",
+    "secondsAgo": "{{seconds}} mp-vel ezelőtt",
+    "minutesAgo": "{{minutes}} p-vel ezelőtt",
+    "hoursAgo": "{{hours}} ó-val ezelőtt",
+    "portrait": "Álló",
+    "landscape": "Fekvő"
+  },
+  "leftPanel": {
+    "signs": "Jelek",
+    "layout": "Elrendezés",
+    "border": "Keret",
+    "shapes": "Alakzatok",
+    "brand": "Márka",
+    "brandKit": "Márkakészlet",
+    "closePanel": "Panel bezárása",
+    "rectangle": "Téglalap",
+    "circle": "Kör",
+    "line": "Vonal",
+    "arrow": "Nyíl"
+  },
+  "rightPanel": {
+    "closePanel": "Panel bezárása",
+    "poster": "Plakát",
+    "size": "Méret",
+    "orientation": "Tájolás",
+    "theme": "Téma",
+    "border": "Keret",
+    "readability": "Olvashatóság",
+    "viewingDistance": "Megtekintési távolság",
+    "minFontSize": "Min. betűméret",
+    "contrast": "Kontraszt",
+    "selection": "Kijelölés",
+    "objectsSelected": "{{count}} objektum kijelölve",
+    "elementColors": "Elem színek",
+    "autoLayout": "Automatikus elrendezés",
+    "themeColors": "Téma színek",
+    "primary": "Elsődleges",
+    "secondary": "Másodlagos",
+    "accent": "Kiemelés",
+    "background": "Háttér",
+    "colorApplied": "{{label}} szín alkalmazva",
+    "copied": "{{color}} másolva",
+    "clickToApply": "Kattintson az alkalmazáshoz",
+    "title72": "Cím (72pt)",
+    "heading36": "Címsor (36pt)",
+    "body18": "Törzsszöveg (18pt)",
+    "caption12": "Felirat (12pt)",
+    "ok": "OK",
+    "marginal": "Határérték",
+    "tooSmall": "Túl kicsi",
+    "minimum": "Minimum",
+    "readabilityTip": "{{distance}}m távolságnál a minimális olvasható méret <strong>{{size}} pt</strong>. Használjon nagy megjelenítési szöveget, vagy csökkentse a megtekintési távolságot a Beállításokban."
+  },
+  "common": {
+    "cancel": "Mégse",
+    "confirm": "Megerősítés",
+    "delete": "Törlés",
+    "close": "Bezárás"
+  }
+}
